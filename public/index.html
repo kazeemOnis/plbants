@@ -11,8 +11,8 @@
      	<!-- Bootstrap.css, Font-awesome.css, Bootstrap-Social.css -->
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <!-- build:css css/main.css -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"></link>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/styles.css">
     <!-- endbuild -->
 
@@ -26,7 +26,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a id="plbants" class="navbar-brand" href="./index.html"><img src="img/team_logo/logos/premier-league.png" class="nav-img"></a>
+      <a id="plbants" class="navbar-brand" href="./index.html"><img src="./img/team_logo/logos/premier-league.png" class="nav-img"></a>
       <h1 id="plhead">PLBants</h1>
     </div>
   </nav>
@@ -112,7 +112,7 @@
     </div>
     <div class="row row-content">
       <div id="leagueTable" class="col-8">
-        <table id="positions" onload="sortTable()">
+        <table id="positions"  data-sort-name="points" data-sort-order="desc" onLoad="sortPoints">
           <thead>
             <tr>
               <th data-field="club">Club</th>

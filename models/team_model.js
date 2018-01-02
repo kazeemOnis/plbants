@@ -76,5 +76,3 @@ var teamSchema = new Schema({
 });
 
 var Team = mongoose.model('team',teamSchema);
-
-module.exports = Team;

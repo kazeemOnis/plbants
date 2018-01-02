@@ -8,7 +8,8 @@ $('li').on('click', function(){
 			
 	$.ajax({
 		type: 'GET',
-		url: 'api/teams/?teamname=' + team,
+		// url: 'api/teams/?teamname=' + team,
+		url: 'team.html',
 		success: function(team){
 			console.log(team);
 			console.log(val);

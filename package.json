@@ -5,20 +5,20 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lite": "lite-server",
+    "lite": "lite-server --baseDir='public'",
     "start": "npm run lite"
   },
   "author": "leks, ben, kaz",
   "license": "ISC",
   "dependencies": {
     "body-parser": "*",
-    "bootstrap": "^4.0.0-alpha.6",
-    "browser-sync": "^2.18.13",
-    "express": "^4.16.2",
-    "font-awesome": "^4.7.0",
-    "lite-server": "^2.3.0",
+    "bootstrap": "*",
+    "browser-sync": "*",
+    "express": "*",
+    "font-awesome": "*",
+    "lite-server": "*",
     "live-server": "*",
     "mongoose": "*",
-    "nodemon": "^1.14.2"
+    "nodemon": "*"
   }
 }

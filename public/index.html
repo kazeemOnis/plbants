@@ -8,11 +8,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-     	<!-- Bootstrap.css, Font-awesome.css, Bootstrap-Social.css -->
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <!-- build:css css/main.css -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"></link>
+     	<!--JQuery, Bootstrap.css, Font-awesome.css, Bootstrap-Social.css -->
+        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
         <link rel="stylesheet" href="css/styles.css">
     <!-- endbuild -->
 
@@ -21,19 +21,19 @@
 
 <body>
 
-  <nav class="navbar fix-top navbar-toggleable-sm">
+  <nav class="navbar navbar-inverse navbar-toggleable-sm">
     <div class="container">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a id="plbants" class="navbar-brand" href="./index.html"><img src="img/team_logo/logos/premier-league.png" class="nav-img"></a>
+      <a class="navbar-brand" href="#"><img src="img/background/plbants.png" class="nav-img" style="height: 100px;"></a>
       <h1 id="plhead">PLBants</h1>
     </div>
   </nav>
   
   <div id="teamLogos">
     <div class="container">
-      <div id=teams class="row row-header">
+      <div class="row row-header">
         <div class="col-12">
           <ul id="team-logos">
             <li value="0">
@@ -112,7 +112,7 @@
     </div>
     <div class="row row-content">
       <div id="leagueTable" class="col-8">
-        <table id="positions" onload="sortTable()">
+        <table id="positions" data-sort-name="points"  data-sort-order="desc">
           <thead>
             <tr>
               <th data-field="club">Club</th>
@@ -123,12 +123,11 @@
               <th data-field="goalsFor">GF</th>
               <th data-field="goalsAgainst">GA</th>
               <th data-field="goalDiff">GD</th>
-              <th data-field="points">Pts</th>
+              <th data-field="points" data-sortable="true">Pts</th>
             </tr>
 
           </thead>
         </table>
-
       </div>
       <div id="leagueStats" class="col-4">
         <div class="col"><h3>GOALS</h3><p>{{player.name}}{{player.goals}}{{player.club}}</p></div>
@@ -138,10 +137,11 @@
   </div>        
   <footer></footer>
 
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <!-- Popper first, ,then Tether, then Bootstrap JS. -->
         <!-- build:js js/main.js -->
         <script src="https://unpkg.com/popper.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
         <script src="js/scripts.js" type="text/javascript"></script>
         <script src="js/kaz.js" type="text/javascript"></script>
        

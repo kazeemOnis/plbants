@@ -1,4 +1,4 @@
-$('li').on('click', function(){
+/**$('li').on('click', function(){
 	var teams = ["Arsenal", "Bournemouth", "Brighton", "Burnley", "Chelsea", "Crystal Palace", "Everton", "Leicester", "Liverpool", "Manchester City", "Mancehster Utd",
 		 		 "Huddersfield", "Newcastle", "Southhampton", "Stock City", "Swansea", "Tottenham", "Watford", "West Brom", "West Ham" ]
 	var val = $(this).val();
@@ -8,12 +8,22 @@ $('li').on('click', function(){
 			
 	$.ajax({
 		type: 'GET',
-		url: 'api/teams/?teamname=' + team,
+		url: 'api/teams',
 		success: function(team){
 			console.log(team);
 			console.log(val);
 			window.location.href = url
 		}
 	});
+});**/
+$(document).ready(function(){
+	$.ajax({
+		type: 'GET',
+		url: 'api/teams/',
+		success: function(team){
+			console.log(team);
+		}
+	});
+
 });
 

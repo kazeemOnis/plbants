@@ -1,20 +1,63 @@
-
-
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var playerSchema = new Schema({
-	name : {
+var stadiumSchema = new Schema({
+	name: {
 		type: String
 	},
-	position: {
+	capacity: {
+		type: Number
+	},
+	image: {
 		type: String
+	}
+});
+
+var statSchema = new Schema({
+	position: {
+		type: Number
+	},
+	played: {
+		type: Number
+	},
+	points: {
+		type: Number
 	},
 	goals: {
 		type: Number
 	},
-	assists: Number
+	conceded: {
+		type: Number
+	},
+	wins: {
+		type: Number 
+	},
+	loss: {
+		type: Number
+	},
+	draws: {
+		type: Number
+	},
+	avgPos: {
+		type: Number
+	},
+	yellowCard: {
+		type: Number
+	},
+	redCard: {
+		type: Number
+	}
 });
+
+var managerSchema = new Schema({
+	name: {
+		type: String
+	},
+	age: {
+		type: Number
+	}
+});
+
 
 var teamSchema = new Schema({
 	name: {
@@ -24,14 +67,12 @@ var teamSchema = new Schema({
 	nickname: {
 		type: String
 	},
-	position: {
-		type: Number
+	description: {
+		type: String
 	},
-	manager: String,
-	stadium: String,
-	players: [playerSchema]
+	manager: managerSchema,
+	stadium: stadiumSchema,
+	stats: statSchema,
 });
 
 var Team = mongoose.model('team',teamSchema);
-
-module.exports = Team;

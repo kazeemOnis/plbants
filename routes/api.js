@@ -2,10 +2,16 @@ var express = require('express');
 var router = express.Router();
 var Team = require('../models/team_model');
 
-router.get('/teams',function(req,res,next){
+/**router.get('/teams',function(req,res,next){
 	Team.find({'name':req.query.teamname.replace(/\_/g,' ')}).then(function(team){
 		res.send(team);
 		console.log(req.query);
+	}).catch(next);
+});**/
+
+router.get('/teams', function(req, res, next){
+	Team.find().then(function(team){
+		res.send(team);
 	}).catch(next);
 });
 

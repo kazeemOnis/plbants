@@ -9,6 +9,13 @@
     "start": "nodemon app",
     "stop": "killall node"
   },
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "live-server": "*",
+    "mongoose": "*",
+    "nodemon": "*"
+  },
   "author": "Kazeem Onisarotu",
   "license": "ISC"
 }

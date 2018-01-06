@@ -19,9 +19,11 @@
 $(document).ready(function(){
 	$.ajax({
 		type: 'GET',
-		url: 'api/teams/',
+		url: 'api/teams',
 		success: function(team){
 			console.log(team);
+			//var teamname = team[0].name;
+			//console.log(teamname);
 		}
 	});
 

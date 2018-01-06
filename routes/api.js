@@ -9,7 +9,7 @@ var Team = require('../models/team_model');
 	}).catch(next);
 });**/
 
-router.get('/teams', function(req, res, next){
+router.get('/teams',function(req,res,next){
 	Team.find().then(function(team){
 		res.send(team);
 	}).catch(next);

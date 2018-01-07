@@ -16,14 +16,25 @@
 		}
 	});
 });**/
+
+//use ajax to retrieve all the teams in the database/api
 $(document).ready(function(){
 	$.ajax({
 		type: 'GET',
 		url: 'api/teams',
 		success: function(team){
+			//all the teams retrieved are stored in the array 
 			console.log(team);
-			//var teamname = team[0].name;
-			//console.log(teamname);
+		}
+	});
+
+//use ajax to retrieve all the players in the daatabse/api
+	$.ajax({
+		type: 'GET',
+		url: 'api/players',
+		success: function(player){
+			// all the players retrieved are stored in the array
+			console.log(player);
 		}
 	});
 

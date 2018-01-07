@@ -26,10 +26,13 @@ var playerSchema = new Schema({
 	cleanSheet: {
 		type: Number
 	},
+	team: {
+		type: String
+	},
 	image: {
 		type: String
 	}
 });
 
 var Player = mongoose.model('player',playerSchema);
-module.exports.Player = Player;
+module.exports = Player;

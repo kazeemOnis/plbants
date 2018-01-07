@@ -21,12 +21,12 @@
 
 <body>
   
-	<nav class="navbar navbar-inverse navbar-toggleable-sm">
-    <div class="container">
+	<nav class="navbar navbar-inverse navbar-toggleable-sm" style="margin-top: -50px;">
+    <div class="container" style="color: black;">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#"><img src="img/background/plbants.png" class="nav-img" style="height: 100px;"></a>
+      <a class="navbar-brand" href="index.html"><img src="img/background/plbants.png" class="nav-img" style="height: 100px;"></a>
       <h1 id="plhead">PLBants</h1>
     </div>
   </nav>
@@ -104,16 +104,18 @@
 
 	<header class="jumbotron">
 		<div class="container">
-			<div class="row row-header">
+			<div id="info" class="row row-header">
 				<div id="team-head" class="col-6 col-sm-6">
 					<div class="row row-header">
 						<div class="col-3 col-sm-3">
-							<img src="/img/logos/arsenal.png" id="team-badge" alt="arsenal">
+							<img id="team-badge" alt="arsenal">
 						</div>
 						<div id="teaminfo" class="col-9 col-sm-9">
-							<span id="stadium"><i id="icons"></i>{{stadium name}}</span><br>
-							<span id="trophies"><i class="fa fa-trophy"></i>{{trophies}}</span>
-							<div >
+              <span id="club-name"> </span><br>
+							<span id="stadium"><img src="/img/icons/stadium.png" class="stadium-icon" > </span><br>
+              <span id="website"><i class="fa fa-home"></i> </span><br>
+							<span id="trophies"><i class="fa fa-trophy fa-black"></i> </span>
+						  <div >
 	              <a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
 	              <a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
 	              <a class="btn btn-social-icon btn-youtube" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
@@ -121,14 +123,14 @@
 	          </div>
 					</div>
 				</div>
-				<div class="pitch col-4 col-sm-6"></div>
+				<div id="pitch" class="col-4 col-sm-6"></div>
 			</div>
 			<div class="row row-header">
-				<div class="team-background col-6 col-sm-6" >
+				<div id="team-background" class="col-6 col-sm-6" >
 					<h3>Team Background</h3>
 					<p>
-						<span>Name: <span id="club-name"></span></span><br>
-						<span>Nickname: <span id="club-nickname"></span></span>
+						<span id="club-nickname" class="team-background"> </span><br>
+            <span id="club-description" class="team-background"> </span>
 					</p>
 				</div>
 				<div class="top-players col-6 col-sm-6">

@@ -1,17 +1,22 @@
 {
   "name": "plbants",
   "version": "1.0.0",
-  "description": "Website for PL stats ",
+  "private": true,
+  "description": "Football Bants",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "lite": "lite-server --baseDir='public'",
     "start": "npm run lite"
+=======
+    "start": "nodemon app",
+    "stop": "killall node"
+>>>>>>> 28c316ebf82c51ef24577994c78a6714e42138d7
   },
-  "author": "leks, ben, kaz",
-  "license": "ISC",
   "dependencies": {
     "body-parser": "*",
+<<<<<<< HEAD
     "bootstrap": "*",
     "browser-sync": "*",
     "express": "*",
@@ -22,3 +27,13 @@
     "nodemon": "*"
   }
 }
+=======
+    "express": "*",
+    "live-server": "*",
+    "mongoose": "*",
+    "nodemon": "*"
+  },
+  "author": "Kazeem Onisarotu",
+  "license": "ISC"
+}
+>>>>>>> 28c316ebf82c51ef24577994c78a6714e42138d7

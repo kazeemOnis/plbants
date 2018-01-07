@@ -1,4 +1,4 @@
-$('li').on('click', function(){
+/**$('li').on('click', function(){
 	var teams = ["Arsenal", "Bournemouth", "Brighton", "Burnley", "Chelsea", "Crystal Palace", "Everton", "Leicester", "Liverpool", "Manchester City", "Mancehster Utd",
 		 		 "Huddersfield", "Newcastle", "Southhampton", "Stock City", "Swansea", "Tottenham", "Watford", "West Brom", "West Ham" ]
 	var val = $(this).val();
@@ -8,16 +8,32 @@ $('li').on('click', function(){
 			
 	$.ajax({
 		type: 'GET',
+<<<<<<< HEAD
 		// url: 'api/teams/?teamname=' + team,
 		url: 'team.html',
+=======
+		url: 'api/teams',
+>>>>>>> 28c316ebf82c51ef24577994c78a6714e42138d7
 		success: function(team){
 			console.log(team);
 			console.log(val);
 			window.location.href = url
 		}
 	});
-});
+});**/
 
+//use ajax to retrieve all the teams in the database/api
+$(document).ready(function(){
+	$.ajax({
+		type: 'GET',
+		url: 'api/teams',
+		success: function(team){
+			//all the teams retrieved are stored in the array 
+			console.log(team);
+		}
+	});
+
+<<<<<<< HEAD
 	function Club(){
 		this.id = Number;
 		this.name = String;
@@ -92,3 +108,16 @@ $('li').on('click', function(){
 	});
 
 
+=======
+//use ajax to retrieve all the players in the daatabse/api
+	$.ajax({
+		type: 'GET',
+		url: 'api/players',
+		success: function(player){
+			// all the players retrieved are stored in the array
+			console.log(player);
+		}
+	});
+
+});
+>>>>>>> 28c316ebf82c51ef24577994c78a6714e42138d7

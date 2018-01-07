@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*General*/
   .row-header {
     margin: 0px auto;
@@ -130,3 +131,144 @@
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     padding: 10px; }
+=======
+#plhead {
+  font-size: 50px; }
+
+#teams {
+  margin: 0px auto;
+  /*padding: 20px 5px;*/ }
+
+.team-badge {
+  width: 130px;
+  height: 130px; }
+
+.jumbotron {
+  background: transparent; }
+
+.team-head {
+  border-right: 1px ridge; }
+
+.team-background {
+  border-right: 1px ridge; }
+
+.pitch {
+  background-image: url("/img/background/field.jpeg");
+  background-size: 100% 100%; }
+
+.image {
+  height: 45px;
+  width: 45px;
+  padding: 5px;
+  position: relative; }
+
+
+.image:hover {
+  transform: scale(1.5,1.5); }
+
+#players {
+  width: 100%;
+  height: 100px;
+  overflow-y: scroll;
+  white-space: nowrap; }
+
+#players li {
+  display: inline; }
+
+.teamplayerimage {
+  border-radius: 20%;
+}
+
+#team-logos li {
+  display: inline;
+  color: floralwhite; }
+
+#teamLogos {
+  margin-top: 70px; }
+
+.top-images {x
+  border-radius: 50%; }
+
+.nav-img {
+  height: 100px; }
+
+.navbar-nav {
+  margin-left: %; 
+}
+  
+.row-header {
+  margin: 0px auto;
+  padding: 0px 0px; 
+  padding-bottom: 10px; }
+
+.row-content {
+  margin: 0px auto;
+  padding: 50px 0px;
+  /*border-bottom: 1px ridge;*/
+  min-height: 400px; }
+
+.row-player {
+  margin: 0px auto;
+  max-height: 20px; }
+
+.footer {
+  background-color: #D1C4E9;
+  margin: 0px auto;
+  padding: 20px 0px; }
+
+body {
+  padding: 50px 0px 0px 0px;
+  z-index: 0; 
+  background-image: url("/img/background/field.jpeg");
+  background-attachment: fixed;
+  color: white; }
+/*
+.navbar-default {
+  float: center}*/
+
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px; }
+
+
+#mySearch {
+  margin: 0px auto;
+  padding: 20px 0px; 
+  border-bottom: 1px ridge}
+
+#leagueTable {
+  border-right: 1px ridge;
+ }
+
+#positions {
+  width: 100%;
+  background: floralwhite; 
+  color: black;
+  counter-reset: rowNumber - 1; }
+
+tr{
+    counter-increment: rowNumber;
+}
+
+tr td:first-child::before {
+    content: counter(rowNumber);
+    min-width: 1em;
+    margin-right: 0.5em;
+}
+
+
+td, th {
+  /*text-align: center;*/
+  border-bottom: 1px ridge lightgrey;
+  margin: 0px auto;
+  padding: 2px; }
+
+th {
+  border-bottom: 1px ridge lightgrey; 
+  background-color: lightblue; }
+
+.fixtures, .formation {
+  border-right: 1px ridge; }
+>>>>>>> 28c316ebf82c51ef24577994c78a6714e42138d7

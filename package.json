@@ -1,22 +1,15 @@
 {
   "name": "plbants",
   "version": "1.0.0",
-  "private": true,
-  "description": "Football Bants",
+  "description": "Soccer webpage",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
     "lite": "lite-server --baseDir='public'",
     "start": "npm run lite"
-=======
-    "start": "nodemon app",
-    "stop": "killall node"
->>>>>>> 28c316ebf82c51ef24577994c78a6714e42138d7
   },
   "dependencies": {
     "body-parser": "*",
-<<<<<<< HEAD
     "bootstrap": "*",
     "browser-sync": "*",
     "express": "*",
@@ -25,15 +18,16 @@
     "live-server": "*",
     "mongoose": "*",
     "nodemon": "*"
-  }
-}
-=======
-    "express": "*",
-    "live-server": "*",
-    "mongoose": "*",
-    "nodemon": "*"
   },
-  "author": "Kazeem Onisarotu",
-  "license": "ISC"
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beobj/plbants.git"
+  },
+  "author": "Lekan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beobj/plbants/issues"
+  },
+  "homepage": "https://github.com/beobj/plbants#readme"
 }
->>>>>>> 28c316ebf82c51ef24577994c78a6714e42138d7

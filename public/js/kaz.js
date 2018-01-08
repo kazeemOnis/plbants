@@ -8,12 +8,10 @@
 			
 	$.ajax({
 		type: 'GET',
-<<<<<<< HEAD
+
 		// url: 'api/teams/?teamname=' + team,
 		url: 'team.html',
-=======
 		url: 'api/teams',
->>>>>>> 28c316ebf82c51ef24577994c78a6714e42138d7
 		success: function(team){
 			console.log(team);
 			console.log(val);
@@ -33,7 +31,6 @@ $(document).ready(function(){
 		}
 	});
 
-<<<<<<< HEAD
 	function Club(){
 		this.id = Number;
 		this.name = String;
@@ -107,8 +104,6 @@ $(document).ready(function(){
 		teamBackground(arsenal.name,arsenal.nickname,arsenal.history);
 	});
 
-
-=======
 //use ajax to retrieve all the players in the daatabse/api
 	$.ajax({
 		type: 'GET',
@@ -120,4 +115,3 @@ $(document).ready(function(){
 	});
 
 });
->>>>>>> 28c316ebf82c51ef24577994c78a6714e42138d7

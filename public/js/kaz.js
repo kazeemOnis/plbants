@@ -26,23 +26,24 @@ $(document).ready(function(){
 					var trophies = trophies;
 					$("#trophies").append(trophies);
 				//Recieves and sends club website
-					var site = site;
+					var site = site
+					var sitename = site.split('.')[1] + '.com';
 					var website = $("#website");
 					var sitetag = $("<a></a>");
 					website.append(sitetag);
-					sitetag.attr('href',site).append(site);
+					sitetag.attr('href','https://'+site).append(sitename);
 					sitetag.css('color','white');
 					sitetag.attr('target','_blank');
-					console.log(sitetag);
+					console.log(site);
 				//Recieves and sends club facebook
 					var facebook = facebook;
-					$('#club-facebook').attr('href',facebook);
+					$('#club-facebook').attr('href',facebook).attr('target','_blank');
 				//Recieves and sends club twitter
 					var twitter = twitter;
-					$('#club-twitter').attr('href',twitter);
+					$('#club-twitter').attr('href',twitter).attr('target','_blank');
 				//Recieves and sends club youtube
 					var youtube = youtube;
-					$('#club-youtube').attr('href',youtube);
+					$('#club-youtube').attr('href',youtube).attr('target','_blank');
 				//Recieves and sends background colour for club page
 					var color = color;
 					$("#info").css('background',color);

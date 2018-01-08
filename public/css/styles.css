@@ -24,6 +24,7 @@
     z-index: 0; 
     background-image: url("/img/background/field.jpeg");
     background-attachment: fixed;
+    background-position: center;
     color: white; }
 
 /* Navbar */
@@ -93,7 +94,9 @@
 
   #team-badge {
     width: 130px;
-    height: 130px; }
+    height: 130px;
+    margin-left: auto;
+    margin-right: auto; }
 
   .stadium-icon {
     filter: invert(100%);
@@ -136,3 +139,33 @@
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
     padding: 10px; }
+
+/* Social Icons */
+  /*Change icons size here*/
+  .social-icons .fa {
+    font-size: 20px;
+  }
+  /*Change icons circle size and color here*/
+    .social-icons .fa {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      color: #FFF;
+      color: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease-in-out;
+    }
+
+  .social-icons.icon-circle .fa{ 
+    border-radius: 50%;
+  }
+
+  .social-icons .fa:hover, .social-icons .fa:active {
+    color: #FFF;
+    box-shadow: 1px 1px 3px #333; 
+  }
+ 
+  .social-icons .fa-facebook,.social-icons .fa-facebook-square{background-color:#3C599F;}  
+  .social-icons .fa-instagram{background-color:#A1755C;}
+  .social-icons .fa-twitter,.social-icons .fa-twitter-square{background-color:#32CCFE;} 
+  .social-icons .fa-youtube-play{background-color:#C52F30;}

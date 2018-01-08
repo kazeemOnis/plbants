@@ -1,0 +1,32 @@
+{
+  "name": "plbants",
+  "version": "1.0.0",
+  "description": "Soccer webpage",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server --baseDir='public'",
+    "start": "npm run lite"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "bootstrap": "*",
+    "browser-sync": "*",
+    "express": "*",
+    "font-awesome": "*",
+    "lite-server": "*",
+    "live-server": "*",
+    "mongoose": "*",
+    "nodemon": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beobj/plbants.git"
+  },
+  "author": "Lekan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beobj/plbants/issues"
+  },
+  "homepage": "https://github.com/beobj/plbants#readme"
+}

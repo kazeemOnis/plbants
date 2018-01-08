@@ -4,6 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var routes = require('./routes/api');
+var path = require('path');
 
 ////connect to mongodb
 mongoose.connect('mongodb://kazonis:kazman3@ds159696.mlab.com:59696/team');
@@ -14,12 +15,15 @@ mongoose.Promise = global.Promise;
 
 app.use(express.static('public'));
 
+app.use('/teams',express.static('public'));
+
 // initialize body parser middleware 
 app.use(bodyParser.json());
 
 //intialize routes to api
 app.use('/api',routes);
 
+app.use('/teams/api',routes);
 // middleware for error handling 
 app.use(function(err,req,res,next){
 	console.log(err._message);
@@ -30,13 +34,13 @@ app.use(function(err,req,res,next){
 
 //port no to connect to server
 var portNo = 3000;
-app.get('/', function(req,res){
-	res.render('index');
+
+//link to the team html page
+app.get('/teams/:name',(req,res)=>{
+res.sendFile(path.join(__dirname + '/public/team.html'));
 });
 
 //listen to portNo and connect to the server
 app.listen(portNo,()=>{
 	console.log("Server running on " + portNo);
 });
-
-	

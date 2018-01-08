@@ -38,6 +38,12 @@
   #team-logos li {
     display: inline; }
 
+  #team-logos {
+    width: 100%;
+    height: 100px;
+    overflow-y: scroll;
+    white-space: nowrap; }
+    
   .image:hover {
     transform: scale(1.5,1.5); }
 

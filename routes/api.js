@@ -3,6 +3,12 @@ var router = express.Router(); //Express router is used to creat the api
 var Team = require('../models/team_model'); //Require the model for creating a team
 var Player = require('../models/player_model'); //Require the model for creating a player
 
+var plTeams = ['Arsenal','Bournemouth','Brighton_and_Hove_Albion','Burnley',
+			'Chelsea','Crystal_Palace','Everton','West_Ham_United','Huddersfield_Town',
+			'Leicester_City','West_Bromwich_Albion','Liverpool','Manchester_City','Manchester_United',
+			'Newcastle_United','Watford','Tottenham_Hotspur','Southampton','Swansea_City','Stoke_City'
+			];
+
 // Api retrieves all the players in the database
 router.get('/players',function(req,res,next){
 	Player.find().then(function(player){
@@ -21,12 +27,25 @@ router.get('/players',function(req,res,next){
 });
 
 // Api feteches a player, where :name is the player's name
+// Api also searches for a player that belong to a particular team
 router.get('/players/:name',function(req,res,next){
-	Player.findOne({'name':req.params.name.replace(/\_/g,' ')}).then(function(player){
-		console.log(req.params.name);
-		res.send(player);
-	}).catch(next);
+	for(var i=0; i<plTeams.length; i++){
+		if(req.params.name === plTeams[i]){
+			Player.find({'team':req.params.name.replace(/\_/g,' ')}).then(function(player){
+				console.log(req.params);
+				res.send(player);
+			}).catch(next);
+			break;
+		}
+	}
+	if(req.params.name !== plTeams[i]){
+		Player.findOne({'name':req.params.name.replace(/\_/g,' ')}).then(function(player){
+				console.log(req.params);
+				res.send(player);
+			}).catch(next);
+	}
 });
+
 
 // Api creates a new player to add to the database
 router.post('/players',function(req,res,next){

@@ -58,6 +58,23 @@ var managerSchema = new Schema({
 	}
 });
 
+var linkSchema = new Schema({
+	facebook: {
+		type: String
+	},
+	twitter: {
+		type: String
+	},
+	instagram: {
+		type: String
+	},
+	youtube: {
+		type: String
+	},
+	website: {
+		type: String
+	}
+});
 
 var teamSchema = new Schema({
 	name: {
@@ -67,12 +84,25 @@ var teamSchema = new Schema({
 	nickname: {
 		type: String
 	},
+	image: {
+		type: String
+	},
 	description: {
 		type: String
+	},
+	color: {
+		type: String
+	},
+	formation: {
+		type: String
+	},
+	trophies: {
+		type: Number
 	},
 	manager: managerSchema,
 	stadium: stadiumSchema,
 	stats: statSchema,
+	links: linkSchema
 });
 
 var Team = mongoose.model('team',teamSchema);

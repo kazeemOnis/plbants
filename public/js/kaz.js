@@ -81,7 +81,7 @@ $(document).ready(function(){
 	//use ajax to retrieve all the players in the daatabse/api
 	$.ajax({
 		type: 'GET',
-		url: 'api/players',
+		url: 'api/players/' + team,
 		success: function(player){
 			// all the players retrieved are stored in the array
 			console.log(player);

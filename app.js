@@ -4,6 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var routes = require('./routes/api');
+var path = require('path');
 
 ////connect to mongodb
 mongoose.connect('mongodb://kazonis:kazman3@ds159696.mlab.com:59696/team');
@@ -30,8 +31,12 @@ app.use(function(err,req,res,next){
 
 //port no to connect to server
 var portNo = 3000;
-app.get('/', function(req,res){
-	res.render('index');
+
+
+//link to the team html page
+app.get('/teams/:name',function(req,res){
+	res.sendFile(path.join(__dirname + '/public/team.html'));
+	console.log(__dirname);
 });
 
 //listen to portNo and connect to the server

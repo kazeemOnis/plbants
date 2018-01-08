@@ -19,9 +19,6 @@
     "mongoose": "*",
     "nodemon": "*"
   },
-  "devDependencies": {
-    "reload": "*"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/beobj/plbants.git"

@@ -40,6 +40,9 @@ app.get('/teams/:name',(req,res)=>{
 res.sendFile(path.join(__dirname + '/public/team.html'));
 });
 
+// reload(app);
+
+
 //listen to portNo and connect to the server
 app.listen(portNo,()=>{
 	console.log("Server running on " + portNo);

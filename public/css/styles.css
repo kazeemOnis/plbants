@@ -1,139 +1,138 @@
-#plhead {
-  font-size: 50px; }
+/*General*/
+  .row-header {
+    margin: 0px auto;
+    padding: 0px 0px; 
+    padding-bottom: 10px; }
 
-#teams {
-  margin: 0px auto;
-  /*padding: 20px 5px;*/ }
+  .row-content {
+    margin: 0px auto;
+    padding: 50px 0px;
+    /*border-bottom: 1px ridge;*/
+    min-height: 400px; }
 
-.team-badge {
-  width: 130px;
-  height: 130px; }
+  .row-player {
+    margin: 0px auto;
+    max-height: 20px; }
 
-.jumbotron {
-  background: transparent; }
+  .footer {
+    background-color: #D1C4E9;
+    margin: 0px auto;
+    padding: 20px 0px; }
 
-.team-head {
-  border-right: 1px ridge; }
+  body {
+    padding: 50px 0px 0px 0px;
+    z-index: 0; 
+    background-image: url("/img/background/field.jpeg");
+    background-attachment: fixed;
+    color: white; }
 
-.team-background {
-  border-right: 1px ridge; }
+/* Navbar */
+  #plhead {
+    font-size: 50px; }
 
-.pitch {
-  background-image: url("/img/background/field.jpeg");
-  background-size: 100% 100%; }
+/* Team Logos */
+  #teamLogos {
+    margin-top: 10px;
+    margin-bottom: -55px;  }
 
-.image {
-  height: 45px;
-  width: 45px;
-  padding: 5px;
-  position: relative; }
+  #team-logos li {
+    display: inline; }
+
+  #team-logos {
+    width: 100%;
+    height: 100px;
+    overflow-y: scroll;
+    white-space: nowrap; }
+    
+  .image:hover {
+    transform: scale(1.5,1.5); }
+
+/* Home Page */
+  .image {
+    height: 45px;
+    width: 45px;
+    padding: 5px;
+    position: relative; }
+
+  #mySearch {
+    margin: 0px auto;
+    padding: 20px 0px; 
+    border-bottom: 1px ridge; }
+
+  #leagueTable {
+    border-right: 1px ridge;  }
+
+  #positions {
+    min-width: 100px;
+    background: floralwhite; 
+    color: black;
+    counter-reset: rowNumber - 1; }
+
+  tr{
+      counter-increment: rowNumber; }
+
+  tr td:first-child::before {
+      content: counter(rowNumber);
+      min-width: 1em;
+      margin-right: 0.5em; }
 
 
-.image:hover {
-  transform: scale(1.5,1.5); }
+  td, th {
+    /*text-align: center;*/
+    border-bottom: 1px ridge lightgrey;
+    margin: 0px auto;
+    padding: 2px; }
 
-#players {
-  width: 100%;
-  height: 100px;
-  overflow-y: scroll;
-  white-space: nowrap; }
+  th {
+    border-bottom: 1px ridge lightgrey; 
+    background-color: lightblue; }
 
-#players li {
-  display: inline; }
+/* Team Page */
+  .jumbotron {
+    background: transparent; }
 
-.teamplayerimage {
-  border-radius: 20%;
-}
+  #team-badge {
+    width: 130px;
+    height: 130px; }
 
-#team-logos li {
-  display: inline;
-  color: floralwhite; }
+  .stadium-icon {
+    filter: invert(100%);
+    height: 15px; }
 
-#teamLogos {
-  margin-top: 70px; }
+  #team-head {
+    margin-top: auto;
+    margin-bottom: auto; }
 
-.top-images {x
-  border-radius: 50%; }
+  #teampitch { 
+   height: 250px;
+   width: 100%; }
 
-.nav-img {
-  height: 100px; }
+  #team-background {
+    border-right: 1px ridge; }
 
-.navbar-nav {
-  margin-left: %; 
-}
+  #club-name {
+    font-size: 25px; }
+
+  .fixtures, .formation {
+    border-right: 1px ridge; }
   
-.row-header {
-  margin: 0px auto;
-  padding: 0px 0px; 
-  padding-bottom: 10px; }
+  #players li {
+    display: inline; }
 
-.row-content {
-  margin: 0px auto;
-  padding: 50px 0px;
-  /*border-bottom: 1px ridge;*/
-  min-height: 400px; }
+  .teamplayerimage {
+    border-radius: 20%; }
 
-.row-player {
-  margin: 0px auto;
-  max-height: 20px; }
+  .top-images {x
+    border-radius: 50%; }
 
-.footer {
-  background-color: #D1C4E9;
-  margin: 0px auto;
-  padding: 20px 0px; }
+  #players {
+    width: 100%;
+    height: 100px;
+    overflow-y: scroll;
+    white-space: nowrap; }
 
-body {
-  padding: 50px 0px 0px 0px;
-  z-index: 0; 
-  background-image: url("/img/background/field.jpeg");
-  background-attachment: fixed;
-  color: white; }
-/*
-.navbar-default {
-  float: center}*/
-
-.tab-content {
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  padding: 10px; }
-
-
-#mySearch {
-  margin: 0px auto;
-  padding: 20px 0px; 
-  border-bottom: 1px ridge}
-
-#leagueTable {
-  border-right: 1px ridge;
- }
-
-#positions {
-  width: 100%;
-  background: floralwhite; 
-  color: black;
-  counter-reset: rowNumber - 1; }
-
-tr{
-    counter-increment: rowNumber;
-}
-
-tr td:first-child::before {
-    content: counter(rowNumber);
-    min-width: 1em;
-    margin-right: 0.5em;
-}
-
-
-td, th {
-  /*text-align: center;*/
-  border-bottom: 1px ridge lightgrey;
-  margin: 0px auto;
-  padding: 2px; }
-
-th {
-  border-bottom: 1px ridge lightgrey; 
-  background-color: lightblue; }
-
-.fixtures, .formation {
-  border-right: 1px ridge; }
+  .tab-content {
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 10px; }

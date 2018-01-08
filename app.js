@@ -15,12 +15,15 @@ mongoose.Promise = global.Promise;
 
 app.use(express.static('public'));
 
+app.use('/teams',express.static('public'));
+
 // initialize body parser middleware 
 app.use(bodyParser.json());
 
 //intialize routes to api
 app.use('/api',routes);
 
+app.use('/teams/api',routes);
 // middleware for error handling 
 app.use(function(err,req,res,next){
 	console.log(err._message);
@@ -34,14 +37,11 @@ var portNo = 3000;
 
 
 //link to the team html page
-app.get('/teams/:name',function(req,res){
-	res.sendFile(path.join(__dirname + '/public/team.html'));
-	console.log(__dirname);
+app.get('/teams/:name',(req,res)=>{
+res.sendFile(path.join(__dirname + '/public/team.html'));
 });
 
 //listen to portNo and connect to the server
 app.listen(portNo,()=>{
 	console.log("Server running on " + portNo);
 });
-
-	

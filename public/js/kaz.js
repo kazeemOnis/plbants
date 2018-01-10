@@ -79,20 +79,47 @@ $(document).ready(function(){
 				var position = position;
 				var redCard = redCard;
 				var yellowCard = yellowCard;
+				var image = "/img/icons/shooto.png";
+				var winImage = "/img/icons/wins.png";
+				var lossImage = "/img/icons/loss.png";
+				var yellowImage = "/img/icons/yellow.png"
+				var redImage = "/img/icons/red.png"
+				var img1 = $('<img>').attr('src',image).attr('class','shootit');
+				var img2 = $('<img>').attr('src',image).attr('class','shootit');
+				var winImg = $('<img>').attr('src',winImage).attr('class','shootit');
+				var img4 = $('<img>').attr('src',image).attr('class','shootit');
+				var lossImg = $('<img>').attr('src',lossImage).attr('class','shootit');
+				var img6 = $('<img>').attr('src',image).attr('class','shootit');
+				var img7 = $('<img>').attr('src',image).attr('class','shootit');
+				var img8 = $('<img>').attr('src',image).attr('class','shootit');
+				var redImg = $('<img>').attr('src',redImage).attr('class','shootit');
+				var yellowImg = $('<img>').attr('src',yellowImage).attr('class','shootit');
 				var span = $('<span></span>');
-				$("#stats").append(span.append("Stats " + avPos));
-				$($("#stats span:last-child").append('<br>')).after(span.append("Goals Against " + conceded));
-				$($("#stats span:last-child").append('<br>')).after(span.append("Matches Played " + played));
-				$($("#stats span:last-child").append('<br>')).after(span.append("Matches won " + wins));
-				$($("#stats span:last-child").append('<br>')).after(span.append("Matches drawn " + draws));
-				$($("#stats span:last-child").append('<br>')).after(span.append("Matches lost " + loss));
-				$($("#stats span:last-child").append('<br>')).after(span.append("Goals for " + goals));
-				$($("#stats span:last-child").append('<br>')).after(span.append("Season points " + points));
-				$($("#stats span:last-child").append('<br>')).after(span.append("Season position " + position));
-				$($("#stats span:last-child").append('<br>')).after(span.append("red Cards " + redCard));
-				$($("#stats span:last-child").append('<br>')).after(span.append("yellow Cards " + yellowCard));
+				$("#stats").append(span.append(img8).append("avPos " + avPos));
+				$($("#stats span:last-child").append(' ')).after(span.append(img1).append("Goals Against: " + conceded));
+				$($("#stats span:last-child").append(' ')).after(span.append(img2).append("Matches Played: " + played));
+				$($("#stats span:last-child").append(' ')).after(span.append(winImg).append("Matches won: " + wins));
+				$($("#stats span:last-child").append(' ')).after(span.append(img4).append("Matches drawn: " + draws));
+				$($("#stats span:last-child").append('<br>')).after(span.append(lossImg).append("Matches lost: " + loss));
+				$($("#stats span:last-child").append(' ')).after(span.append(img6).append("Goals for: " + goals));
+				$($("#stats span:last-child").append(' ')).after(span.append(img7).append("Season points: " + points));
+				$($("#stats span:last-child").append(' ')).after(span.append(redImg).append("red Cards: " + redCard));
+				$($("#stats span:last-child").append(' ')).after(span.append(yellowImg).append("yellow Cards: " + yellowCard));
 			}
-
+			function fixtures(away,away_image,home,home_image,date,time){
+				var away = away;
+				var aimage = away_image;
+				console.log(aimage);
+				var aimg = $('<img>').attr('src',aimage).css('height','40px').css('padding','5px');
+				var home = home;
+				var himage = home_image;
+				var himg = $('<img>').attr('src',himage).css('height','40px').css('padding','5px');
+				var date = date;
+				var time = time;
+				var cardblock = $('<span></span>').attr('class','card-block').css('color','black').css('border-top','2px ridge');
+				$('#fixtures').append($(cardblock).append(date).append("<br>").append(himg).append(' '+time+' ').append(aimg));
+			}
+			console.log(team);
 			//all the teams retrieved are stored in the array 
 				teamDescription(team.image,team.stadium.name,
 					team.stadium.image,team.trophies,team.links.website,
@@ -102,9 +129,11 @@ $(document).ready(function(){
 				teamStats(team.stats.avgPos,team.stats.conceded,team.stats.played,
 					team.stats.wins,team.stats.loss,team.stats.draws,team.stats.goals,
                 	team.stats.points,team.stats.position,team.stats.redCard,team.stats.yellowCard);
-            console.log($('.container').height());
-            console.log($('.jumbotron').height());
-            console.log($('.jumbotron').css('margin'));
+				for(var i=0; i<5; i++){
+					fixtures(team.fixtures[i].away.name,team.fixtures[i].away.image,
+	            		team.fixtures[i].home.name,team.fixtures[i].home.image,
+	            		team.fixtures[i].date,team.fixtures[i].time);
+				}
 		}
 	});
 	// console.log($('.jumbotron').height());

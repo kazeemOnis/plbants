@@ -7,7 +7,7 @@ $(document).ready(function(){
 		url: 'api/teams/' + team,
 		success: function(team){
 			function teamDescription(src,name,image,trophies,site,facebook,
-				twitter,youtube,formation,color){
+				twitter,youtube,instagram,formation,color){
 				//Recieves and sends club logo
 					var img = $("#team-badge");
 					var src = src; 
@@ -44,6 +44,9 @@ $(document).ready(function(){
 				//Recieves and sends club youtube
 					var youtube = youtube;
 					$('#club-youtube').attr('href',youtube).attr('target','_blank');
+				//Recieves and sends club instagram
+					var instagram = instagram;
+					$('#club-instagram').attr('href',instagram).attr('target','_blank');
 				//Recieves and sends background colour for club page
 					var color = color;
 					$("#info").css('background',color);
@@ -58,7 +61,6 @@ $(document).ready(function(){
 				//Recieves and sends club formation
 					var formation = formation
 					$('#formation').append($('<img>').attr('src',formation).css('width','100%'));
-
 			}
 			function teamBackground(name,nickname,description){
 				var name = name;
@@ -68,13 +70,15 @@ $(document).ready(function(){
 				$("#club-nickname").append(nickname);
 				$("#club-description").append(description);
 			}
+			
 
 			//all the teams retrieved are stored in the array 
 				teamDescription(team.image,team.stadium.name,
 					team.stadium.image,team.trophies,team.links.website,
 					team.links.facebook,team.links.twitter,team.links.youtube,
-					team.formation,team.color);
+					team.links.instagram,team.formation,team.color);
 				teamBackground(team.name,team.nickname,team.description);
+				// teamPlayers("/img/players/photo-missing");
 				console.log(team);
 		}
 	});
@@ -84,6 +88,37 @@ $(document).ready(function(){
 		type: 'GET',
 		url: 'api/players/' + team,
 		success: function(player){
+			function exists(url, cb){
+			    $.ajax({
+			        url:      url,
+			        dataType: 'text',
+			        type:     'GET',
+			        complete:  function(xhr){
+			            if(typeof cb === 'function')
+			               cb.apply(this, [xhr.status]);
+			        }
+			    });
+			}
+			function teamPlayers(image){
+				var image = image;
+				var li = $('<li></li>');
+				var img = $('<img>');
+				var img2 = $('<img>')
+				$('#players').append(li);
+				li.append(img);
+				exists(image, function(status){
+				    if(status === 200){
+						img.attr('src',image).attr('id','player-image');
+				    }
+				    else if(status === 404){
+			    		img.attr('src','/img/players/photo-missing.png');    
+				    }
+				});
+			}
+			for( var i in player){
+				teamPlayers(player[i].image);
+				console.log(player[i]);
+			}
 			// all the players retrieved are stored in the array
 			console.log(player);
 		}

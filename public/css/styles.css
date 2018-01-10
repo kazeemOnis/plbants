@@ -94,7 +94,9 @@
 
   #team-badge {
     width: 130px;
-    height: 130px; }
+    height: 130px;
+    margin-left: auto;
+    margin-right: auto; }
 
   .stadium-icon {
     filter: invert(100%);
@@ -141,13 +143,13 @@
 /* Social Icons */
   /*Change icons size here*/
   .social-icons .fa {
-    font-size: 30px;
+    font-size: 20px;
   }
   /*Change icons circle size and color here*/
     .social-icons .fa {
-      width: 43px;
-      height: 43px;
-      line-height: 43px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
       text-align: center;
       color: #FFF;
       color: rgba(255, 255, 255, 0.8);

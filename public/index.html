@@ -151,7 +151,7 @@
       </div>
       <div class="row row-content">
         <div id="leagueTable" class="col-8">
-          <table id="positions" data-sort-name="points"  data-sort-order="desc">
+          <table id="positions" onload="sortPoints()" data-sort-name="points"  data-sort-order="desc">
             <thead>
               <tr>
                 <th data-field="club">Club</th>
@@ -183,7 +183,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
       <script src="js/scripts.js" type="text/javascript"></script>
-      <script src="/reload/reload"></script>
+      
      
       <!-- Latest compiled and minified CSS -->
       <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">

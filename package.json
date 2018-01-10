@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite": "lite-server --baseDir='public'",
-    "start": "npm run lite"
+    "start": "npm run lite",
+    "stop": "pkill -signal myApp"
   },
   "dependencies": {
     "body-parser": "*",

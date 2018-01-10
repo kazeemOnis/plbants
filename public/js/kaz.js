@@ -1,7 +1,6 @@
 //use ajax to retrieve all the teams in the database/api
 $(document).ready(function(){
 	var team = location.pathname.split('/')[2];
-	console.log(team);
 	$.ajax({
 		type: 'GET',
 		url: 'api/teams/' + team,
@@ -21,7 +20,6 @@ $(document).ready(function(){
 					var id = "teampitch";
 					pitch.append($("<img>").attr('id',id));
 					$("#teampitch").attr('src',pitchsrc);
-					$("#teampitch").css('margin','auto').css('margin-top','10px');
 				//Recieves and sends amount of trophies won
 					var trophies = trophies;
 					$("#trophies").append(trophies);
@@ -34,7 +32,6 @@ $(document).ready(function(){
 					sitetag.attr('href','https://'+site).append(sitename);
 					sitetag.css('color','white');
 					sitetag.attr('target','_blank');
-					console.log(site);
 				//Recieves and sends club facebook
 					var facebook = facebook;
 					$('#club-facebook').attr('href',facebook).attr('target','_blank');
@@ -49,7 +46,7 @@ $(document).ready(function(){
 					$('#club-instagram').attr('href',instagram).attr('target','_blank');
 				//Recieves and sends background colour for club page
 					var color = color;
-					$("#info").css('background',color);
+					$(".jumbotron").css('background',color);
 					// $('.words').css('mix-blend-mode','difference');
 					if(color == '#f5f5f5'){
 						$('.words').css('filter','invert(1)')
@@ -57,7 +54,6 @@ $(document).ready(function(){
 					if(color == '#fe0'){
 						$('.words').css('filter','invert(1)');
 					};
-					console.log(color);
 				//Recieves and sends club formation
 					var formation = formation
 					$('#formation').append($('<img>').attr('src',formation).css('width','100%'));
@@ -70,7 +66,32 @@ $(document).ready(function(){
 				$("#club-nickname").append(nickname);
 				$("#club-description").append(description);
 			}
-			
+			function teamStats(avPos,conceded,played,wins,loss,
+				draws,goals,points,position,redCard,yellowCard){
+				var avPos = avPos;
+				var conceded = conceded;
+				var played = played;
+				var wins = wins;
+				var loss = loss;
+				var draws = draws;
+				var goals = goals;
+				var points = points;
+				var position = position;
+				var redCard = redCard;
+				var yellowCard = yellowCard;
+				var span = $('<span></span>');
+				$("#stats").append(span.append("Stats " + avPos));
+				$($("#stats span:last-child").append('<br>')).after(span.append("Goals Against " + conceded));
+				$($("#stats span:last-child").append('<br>')).after(span.append("Matches Played " + played));
+				$($("#stats span:last-child").append('<br>')).after(span.append("Matches won " + wins));
+				$($("#stats span:last-child").append('<br>')).after(span.append("Matches drawn " + draws));
+				$($("#stats span:last-child").append('<br>')).after(span.append("Matches lost " + loss));
+				$($("#stats span:last-child").append('<br>')).after(span.append("Goals for " + goals));
+				$($("#stats span:last-child").append('<br>')).after(span.append("Season points " + points));
+				$($("#stats span:last-child").append('<br>')).after(span.append("Season position " + position));
+				$($("#stats span:last-child").append('<br>')).after(span.append("red Cards " + redCard));
+				$($("#stats span:last-child").append('<br>')).after(span.append("yellow Cards " + yellowCard));
+			}
 
 			//all the teams retrieved are stored in the array 
 				teamDescription(team.image,team.stadium.name,
@@ -78,11 +99,19 @@ $(document).ready(function(){
 					team.links.facebook,team.links.twitter,team.links.youtube,
 					team.links.instagram,team.formation,team.color);
 				teamBackground(team.name,team.nickname,team.description);
-				// teamPlayers("/img/players/photo-missing");
-				console.log(team);
+				teamStats(team.stats.avgPos,team.stats.conceded,team.stats.played,
+					team.stats.wins,team.stats.loss,team.stats.draws,team.stats.goals,
+                	team.stats.points,team.stats.position,team.stats.redCard,team.stats.yellowCard);
+            console.log($('.container').height());
+            console.log($('.jumbotron').height());
+            console.log($('.jumbotron').css('margin'));
 		}
 	});
-
+	// console.log($('.jumbotron').height());
+	// console.log($('#team-head').height());
+	// console.log($('#pitch').height());
+	// console.log($('.container').css());
+	// console.log($('#row-header').height());
 	//use ajax to retrieve all the players in the daatabse/api
 	$.ajax({
 		type: 'GET',
@@ -114,13 +143,12 @@ $(document).ready(function(){
 			    		img.attr('src','/img/players/photo-missing.png');    
 				    }
 				});
+				img.css('width','90px').css('height','110px');
 			}
 			for( var i in player){
 				teamPlayers(player[i].image);
-				console.log(player[i]);
+				// console.log(player[i]);
 			}
-			// all the players retrieved are stored in the array
-			console.log(player);
 		}
 	});
 

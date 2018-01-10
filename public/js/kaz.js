@@ -98,30 +98,70 @@ $(document).ready(function(){
 			               cb.apply(this, [xhr.status]);
 			        }
 			    });
-			}
-			function teamPlayers(image){
-				var image = image;
-				var li = $('<li></li>');
-				var img = $('<img>');
-				var img2 = $('<img>')
-				$('#players').append(li);
-				li.append(img);
-				exists(image, function(status){
-				    if(status === 200){
-						img.attr('src',image).attr('id','player-image');
-				    }
-				    else if(status === 404){
-			    		img.attr('src','/img/players/photo-missing.png');    
-				    }
-				});
-			}
-			for( var i in player){
-				teamPlayers(player[i].image);
-				console.log(player[i]);
-			}
-			// all the players retrieved are stored in the array
-			console.log(player);
-		}
+		
+            }
+            
+          function teamPlayers(image){
+              var image = image;
+              var li = $('<li></li>');
+              var img = $('<img>');
+              var img2 = $('<img>')
+              $('#players').append(li);
+              li.append(img);
+              exists(image, function(status){
+                  if(status === 200){
+                      img.attr('src',image).attr('id','player-image');
+                  }
+                  else if(status === 404){
+                      img.attr('src','/img/players/photo-missing.png');    
+                  }
+              });
+          }//teamPlayers
+
+          let callCount = 0;
+          function topPerformers(players)
+          {
+            console.log("finding top performers...");
+            var name="top-name", rating="top-rating";
+            var goals="top-goals", assists="top-assists";
+            
+            var attr;
+            
+            players.sort(function(a,b){return b.goals-a.goals});
+            
+            for( var i=0; i<3; i++)
+            {
+              if(i==0)
+              {
+                attr = name;
+                $('#'+attr).html(""+player[i].name);
+                attr = rating;               
+                $('#'+attr).html(""+player[i].appearances);
+                attr = goals;
+                $('#'+attr).html(""+player[i].goals);
+                attr = assists;
+                $('#'+attr).html(""+player[i].assists);
+              }
+              else if(i<3)
+              {
+                attr = name+i.toString();
+                $('#'+attr).html(""+player[i].name);
+                attr = rating+i.toString();
+                $('#'+attr).html(""+player[i].appearances);
+                attr = goals+i.toString();
+                $('#'+attr).html(""+player[i].goals);
+                attr = assists+i.toString();
+                $('#'+attr).html(""+player[i].assists);
+              }//else-if
+            }//for
+          }//topPerformers
+
+          for( var i in player){
+              teamPlayers(player[i].image);
+              console.log(player[i]);
+          }
+          topPerformers(player);
+		}//success fxn
 	});
 
 });

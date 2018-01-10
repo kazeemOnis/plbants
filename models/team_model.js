@@ -76,6 +76,31 @@ var linkSchema = new Schema({
 	}
 });
 
+var fixtureSchema = new Schema({
+	date: {
+		type: String
+	},
+	home : {
+		name: {
+			type : String
+		},
+		image: {
+			type: String
+		}
+	},
+	time : {
+		type : String
+	},
+	away : {
+		name: {
+			type: String
+		},
+		image: {
+			type: String
+		}
+	}
+});
+
 var teamSchema = new Schema({
 	name: {
 		type: String,
@@ -102,7 +127,8 @@ var teamSchema = new Schema({
 	manager: managerSchema,
 	stadium: stadiumSchema,
 	stats: statSchema,
-	links: linkSchema
+	links: linkSchema,
+	fixtures: [fixtureSchema]
 });
 
 var Team = mongoose.model('team',teamSchema);

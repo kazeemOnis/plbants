@@ -154,6 +154,11 @@
   .shootit {
     height: 30px; }
 
+  .card {
+    background-color: transparent;
+    border: transparent;
+  }
+
   #players {
     width: 100%;
     height: 70px;

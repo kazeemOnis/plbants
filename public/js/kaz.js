@@ -118,7 +118,6 @@ $(document).ready(function(){
               });
           }//teamPlayers
 
-          let callCount = 0;
           function topPerformers(players)
           {
             console.log("finding top performers...");
@@ -129,9 +128,10 @@ $(document).ready(function(){
             
             players.sort(function(a,b){return b.goals-a.goals});
             
+            //get top 3 players-based on goals
             for( var i=0; i<3; i++)
             {
-              if(i==0)
+              if(i==0)  //handle first player
               {
                 attr = name;
                 $('#'+attr).html(""+player[i].name);
@@ -142,7 +142,7 @@ $(document).ready(function(){
                 attr = assists;
                 $('#'+attr).html(""+player[i].assists);
               }
-              else if(i<3)
+              else if(i<3)//handle 2nd/3rd player
               {
                 attr = name+i.toString();
                 $('#'+attr).html(""+player[i].name);

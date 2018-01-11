@@ -6,20 +6,9 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
-    "start": "nodemon app",
-    "stop": "killall node"
-=======
     "lite": "lite-server --baseDir='public'",
     "start": "npm run lite",
-<<<<<<< HEAD
-    "stop": "pkill -signal myApp",
-    "start": "nodemon app",
     "stop": "killall node"
-=======
-    "stop": "pkill -signal myApp"
->>>>>>> 2fb62f61f59dc2385007d2fe691b5b5726d2f8e4
->>>>>>> 0213a0f2d3dbea7eb9f8434870f35880e3bc7902
   },
   "dependencies": {
     "body-parser": "*",
@@ -28,10 +17,6 @@
     "mongoose": "*",
     "nodemon": "*"
   },
-<<<<<<< HEAD
   "author": "Lekan",
-=======
-  "author": "Kazeem Onisarotu",
->>>>>>> 0213a0f2d3dbea7eb9f8434870f35880e3bc7902
   "license": "ISC"
 }

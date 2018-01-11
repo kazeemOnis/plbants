@@ -1,0 +1,21 @@
+{
+  "name": "plbants",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Football Bants",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app",
+    "stop": "killall node"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "express": "*",
+    "live-server": "*",
+    "mongoose": "*",
+    "nodemon": "*"
+  },
+  "author": "Kazeem Onisarotu",
+  "license": "ISC"
+}

@@ -5,14 +5,20 @@ $(document).ready(function(){
 		type: 'GET',
 		url: 'api/teams/' + team,
 		success: function(team){
-			function teamDescription(src,name,image,trophies,site,facebook,
+			function teamDescription(src,stadium_name,name,nickname,image,trophies,site,facebook,
 				twitter,youtube,instagram,formation,color){
 				//Recieves and sends club logo
 					var img = $("#team-badge");
 					var src = src; 
 					img.attr('src',src);
+				//Recieves and sends club name
+					var name = name;
+					$("#club-name").append(name);
+				//Recieves and sends club nickname
+					var nickname = nickname;
+					$("#club-nickname").append(nickname);
 				//Recieves and sends stadium name 
-					var stadium_name = name;
+					var stadium_name = stadium_name;
 					$("#stadium").append(stadium_name);
 				//Recieves and sends stadium image 
 					var pitch = $("#pitch");
@@ -58,12 +64,8 @@ $(document).ready(function(){
 					var formation = formation
 					$('#formation').append($('<img>').attr('src',formation).css('width','100%'));
 			}
-			function teamBackground(name,nickname,description){
-				var name = name;
-				var nickname = nickname;
+			function teamBackground(description){
 				var description = description;
-				$("#club-name").append(name);
-				$("#club-nickname").append(nickname);
 				$("#club-description").append(description);
 			}
 			function teamStats(avPos,conceded,played,wins,loss,
@@ -121,11 +123,11 @@ $(document).ready(function(){
 			}
 			console.log(team);
 			//all the teams retrieved are stored in the array 
-				teamDescription(team.image,team.stadium.name,
+				teamDescription(team.image,team.stadium.name,team.name,team.nickname,
 					team.stadium.image,team.trophies,team.links.website,
 					team.links.facebook,team.links.twitter,team.links.youtube,
 					team.links.instagram,team.formation,team.color);
-				teamBackground(team.name,team.nickname,team.description);
+				teamBackground(team.description);
 				teamStats(team.stats.avgPos,team.stats.conceded,team.stats.played,
 					team.stats.wins,team.stats.loss,team.stats.draws,team.stats.goals,
                 	team.stats.points,team.stats.position,team.stats.redCard,team.stats.yellowCard);
@@ -136,12 +138,6 @@ $(document).ready(function(){
 				}
 		}
 	});
-	// console.log($('.jumbotron').height());
-	// console.log($('#team-head').height());
-	// console.log($('#pitch').height());
-	// console.log($('.container').css());
-	// console.log($('#row-header').height());
-	//use ajax to retrieve all the players in the daatabse/api
 	$.ajax({
 		type: 'GET',
 		url: 'api/players/' + team,
@@ -176,7 +172,6 @@ $(document).ready(function(){
 			}
 			for( var i in player){
 				teamPlayers(player[i].image);
-				// console.log(player[i]);
 			}
 		}
 	});

@@ -1,4 +1,13 @@
 $(document).ready(function(){
+<<<<<<< HEAD
+=======
+    // var team = ['Arsenal', 'Bourenmouth', 'Brighton', 'Burnley', 'Chelsea',
+    //             'Crystal Palace', 'Everton', 'Huddersfield', 'Leicester',
+    //             'Liverpool', 'Manchester City', 'Manchesterter United', 'Newcastle United',
+    //             'Southampton', 'Stoke City', 'Swansea', 'Tottenham', 'Watford', 'West Bromwich Albion',
+    //             'West Ham United' ];
+                // console.log(team);
+>>>>>>> e23b2714f9324b91bb8c5fdeceeabebf680756c6
     $.ajax({
         type: 'GET',
         url: 'api/teams',
@@ -15,8 +24,11 @@ $(document).ready(function(){
                 var goalsDiff = diff;
                 var points = points;
                 var tbody = $('<tbody></tbody>');
+<<<<<<< HEAD
                 var td = $('<td></td>').attr('id','col').append(position);
                 var td1 = $('<td></td>').attr('id','col1').append(club);
+=======
+>>>>>>> e23b2714f9324b91bb8c5fdeceeabebf680756c6
                 var image = image;
                 var img = $('<img>').attr('src',image);
                 img.css('width','20px');
@@ -63,7 +75,16 @@ $(document).ready(function(){
                     team[i].stats.loss,team[i].stats.draws,team[i].stats.goals,
                     team[i].stats.conceded,diff,team[i].stats.points);
             }
+<<<<<<< HEAD
             sortTable();
         }
     });
 }); 
+=======
+            
+        sortTable();
+        }
+        });
+});
+
+>>>>>>> e23b2714f9324b91bb8c5fdeceeabebf680756c6

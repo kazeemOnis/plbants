@@ -39,16 +39,6 @@
     #team-logos li {
       display: inline; }
 
-<<<<<<< HEAD
-  #team-logos {
-    width: 100%;
-    height: 100px;
-    overflow-y: hidden;
-    white-space: nowrap; }
-    
-  .image:hover {
-    transform: scale(1.5,1.5); }
-=======
     #team-logos {
       /*width: 100%;*/
       height: 100px;
@@ -56,7 +46,6 @@
       
     .image:hover {
       transform: scale(1.5,1.5); }
->>>>>>> 2ec8e4b996ad22213b3a6134425ae9d7c2733b04
 
 /* Home Page */
   .image {

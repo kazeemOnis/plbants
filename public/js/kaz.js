@@ -152,8 +152,6 @@ $(document).ready(function(){
 			               cb.apply(this, [xhr.status]);
 			        }
 			    });
-<<<<<<< HEAD
-		
             }
             
           function teamPlayers(image){
@@ -175,51 +173,59 @@ $(document).ready(function(){
 
           function topPerformers(players)
           {
-            console.log("finding top performers...");
+            var topPlayers = [];
+//            console.log("finding top performers...");
             var name="top-name", rating="top-rating";
             var goals="top-goals", assists="top-assists";
-            
             var attr;
             
-            players.sort(function(a,b){return b.goals-a.goals});
-            
-            //get top 3 players-based on goals
-            for( var i=0; i<3; i++)
+            var defenders = [];
+            for(var i=0; i<player.length; i++)
             {
-              if(i==0)  //handle first player
-              {
-                attr = name;
-                $('#'+attr).html(""+player[i].name);
-                attr = rating;               
-                $('#'+attr).html(""+player[i].appearances);
-                attr = goals;
-                $('#'+attr).html(""+player[i].goals);
-                attr = assists;
-                $('#'+attr).html(""+player[i].assists);
-              }
-              else if(i<3)//handle 2nd/3rd player
-              {
-                attr = name+i.toString();
-                $('#'+attr).html(""+player[i].name);
-                attr = rating+i.toString();
-                $('#'+attr).html(""+player[i].appearances);
-                attr = goals+i.toString();
-                $('#'+attr).html(""+player[i].goals);
-                attr = assists+i.toString();
-                $('#'+attr).html(""+player[i].assists);
-              }//else-if
-            }//for
+              if(player[i].position === "DF" || player[i].position === "GK")
+                defenders.push(player[i]);
+            }
+            defenders.sort(function(a,b){              
+                return b.cleanSheet-a.cleanSheet
+            });
+            //get top 3 players-based on goals
+//            for( var i=0; i<3; i++)
+//            {
+//              if(i==0)  //handle first player
+//              {
+//                attr = name;
+//                $('#'+attr).html(""+players[i].name);
+//                attr = rating;               
+//                $('#'+attr).html(""+players[i].appearances);
+//                attr = goals;
+//                $('#'+attr).html(""+players[i].goals);
+//                attr = assists;
+//                $('#'+attr).html(""+players[i].assists);
+//              }
+//              else if(i<3)//handle 2nd/3rd player
+//              {
+//                attr = name+i.toString();
+//                $('#'+attr).html(""+players[i].name);
+//                attr = rating+i.toString();
+//                $('#'+attr).html(""+players[i].appearances);
+//                attr = goals+i.toString();
+//                $('#'+attr).html(""+players[i].goals);
+//                attr = assists+i.toString();
+//                $('#'+attr).html(""+players[i].assists);
+//              }//else-if
+//            }//for
           }//topPerformers
 
           for( var i in player){
               teamPlayers(player[i].image);
               console.log(player[i]);
           }
+          
           topPerformers(player);
-		}//success fxn
-=======
-			}
-			function teamPlayers(image){
+
+//		}//success fxn
+        
+        function teamPlayers(image){
 				var image = image;
 				var li = $('<li></li>');
 				var img = $('<img>');
@@ -230,17 +236,18 @@ $(document).ready(function(){
 				    if(status === 200){
 						img.attr('src',image).attr('id','player-image');
 				    }
-				    else if(status === 404){
-			    		img.attr('src','/img/players/photo-missing.png');    
+				    else if(status === 404)
+                    {
+                      img.attr('src','/img/players/photo-missing.png');    
 				    }
-				});
-				img.css('width','90px').css('height','110px');
-			}
-			for( var i in player){
-				teamPlayers(player[i].image);
-			}
-		}
->>>>>>> 2ec8e4b996ad22213b3a6134425ae9d7c2733b04
+				});				img.css('width','90px').css('height','110px');
+			}//teamPlayers
+			
+        
+          for( var i in player)       
+          {
+            teamPlayers(player[i].image);
+          }
+        }//successFxn
 	});
-
 });

@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 var routes = require('./routes/api');
 var path = require('path');
 
@@ -44,6 +45,11 @@ app.get('/teams/:name',(req,res)=>{
 
 app.get('/players/:name',(req,res)=>{
 	res.sendFile(path.join(__dirname + '/public/player.html'));
+});
+
+app.get('/search',(req,res)=>{
+	var player = req.query.player.replace(' ','_');
+	res.redirect('/players/'+player);
 });
 
 

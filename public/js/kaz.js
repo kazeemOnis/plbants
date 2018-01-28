@@ -30,7 +30,7 @@ $(document).ready(function(){
 					var trophies = trophies;
 					$("#trophies").append(trophies);
 				//Recieves and sends club website
-					var site = site
+					var site = site;
 					var sitename = site.split('.')[1] + '.com';
 					var website = $("#website");
 					var sitetag = $("<a></a>");
@@ -55,13 +55,13 @@ $(document).ready(function(){
 					$(".jumbotron").css('background',color);
 					// $('.words').css('mix-blend-mode','difference');
 					if(color == '#f5f5f5'){
-						$('.words').css('filter','invert(1)')
+						$('.words').css('filter','invert(1)');
 					};
 					if(color == '#fe0'){
 						$('.words').css('filter','invert(1)');
 					};
 				//Recieves and sends club formation
-					var formation = formation
+					var formation = formation;
 					$('#formation').append($('<img>').attr('src',formation).css('width','100%'));
 			}
 			function teamBackground(description){
@@ -111,7 +111,6 @@ $(document).ready(function(){
 			function fixtures(away,away_image,home,home_image,date,time){
 				var away = away;
 				var aimage = away_image;
-				console.log(aimage);
 				var aimg = $('<img>').attr('src',aimage).css('height','40px').css('padding','5px');
 				var home = home;
 				var himage = home_image;
@@ -121,7 +120,7 @@ $(document).ready(function(){
 				var cardblock = $('<span></span>').attr('class','card-block').css('color','black').css('border-top','2px ridge');
 				$('#fixtures').append($(cardblock).append(date).append("<br>").append(himg).append(' '+time+' ').append(aimg));
 			}
-			console.log(team);
+
 			//all the teams retrieved are stored in the array 
 				teamDescription(team.image,team.stadium.name,team.name,team.nickname,
 					team.stadium.image,team.trophies,team.links.website,
@@ -157,7 +156,7 @@ $(document).ready(function(){
 				var image = image;
 				var li = $('<li></li>');
 				var img = $('<img>');
-				var img2 = $('<img>')
+				var img2 = $('<img>');
 				$('#players').append(li);
 				li.append(img);
 				exists(image, function(status){
@@ -170,10 +169,60 @@ $(document).ready(function(){
 				});
 				img.css('width','90px').css('height','110px');
 			}
+			function topPerformers(player){
+	            var name=$('#top-name');var goals=$("#top-goal");
+	            var assists=$("#top-assist");var image=$("#top-image");var link=$('#top_link');
+	            var name1=$("#top-name1");var goals1=$("#top-goal1");
+	            var assists1=$("#top-assist1");var image1=$("#top-image1");var link1=$('#top_link1');
+	            var name2=$("#top-name2");var app=$("#top-app");
+	            var clean=$("#top-clean");var image2=$("#top-image2");var link2=$('#top_link2');
+	            var defenders = [];
+	            for(var i=0; i<player.length; i++)
+	            {
+	              if(player[i].position === "DF" || player[i].position === "GK")
+	                defenders.push(player[i]);
+	            }
+	            defenders.sort(function(a,b){              
+	                return b.cleanSheet-a.cleanSheet;
+	            });
+				// console.log(defenders);
+	            for( var i=0; i<player.length; i++)
+	            {
+	              if(i===0){  //handle first player
+		            player.sort(function(a,b){return b.goals-a.goals;});
+	                name.append(player[0].name);
+	                goals.append(player[0].goals);
+	                assists.append(player[0].assists);
+	                image.attr('src',player[0].image);
+	                var links = "/players/" + player[0].name.replace(' ','_');
+	                link.attr('href',links);
+	            
+	              }
+	              	if(i===1){	//handle 2nd
+			            player.sort(function(a,b){return b.assists-a.assists;});
+		                name1.append(""+player[0].name);
+		                goals1.append(""+player[0].goals);
+		                assists1.append(""+player[0].assists);
+		                image1.attr('src',player[0].image);
+		                var links = "/players/" + player[0].name.replace(' ','_');
+		                console.log(links);
+		                link1.attr('href',links);
+	            	}
+					if(i==2)//handle 3rd
+					{
+						name2.append(""+defenders[0].name);
+						clean.append(""+defenders[0].cleanSheet);
+						app.append(""+defenders[0].appearances);
+						image2.attr('src',defenders[0].image);
+						var links = "/players/" + defenders[0].name.replace(' ','_');
+						link2.attr('href',links);
+					}
+	            }//for
+	        }//topPerformers
 			for( var i in player){
 				teamPlayers(player[i].image);
 			}
+			topPerformers(player);
 		}
 	});
-
 });

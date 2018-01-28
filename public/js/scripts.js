@@ -1,10 +1,4 @@
 $(document).ready(function(){
-    // var team = ['Arsenal', 'Bourenmouth', 'Brighton', 'Burnley', 'Chelsea',
-    //             'Crystal Palace', 'Everton', 'Huddersfield', 'Leicester',
-    //             'Liverpool', 'Manchester City', 'Manchesterter United', 'Newcastle United',
-    //             'Southampton', 'Stoke City', 'Swansea', 'Tottenham', 'Watford', 'West Bromwich Albion',
-    //             'West Ham United' ];
-                // console.log(team);
     $.ajax({
         type: 'GET',
         url: 'api/teams',
@@ -73,5 +67,75 @@ $(document).ready(function(){
             sortTable();
         }
     });
+
+    $.ajax({
+        type:'GET',
+        url:'api/players',
+        success: function(players){
+            var search = $('#search');
+            var options = {
+                url:'api/players',
+                minCharNumber:1,
+               list:{
+                 sort:{enabled:true},
+                 match:{enabled: true},
+               },    
+               highlightPhrase: false,
+               getValue: "name"
+            };
+            search.easyAutocomplete(options);
+            function topGoals(player){
+                player.sort(function(a,b){
+                    return b.goals-a.goals;
+                });
+                for(var i=0; i<=3; i++){
+                    var name = "#goal-name" + i; var image = "#goal-image" + i; 
+                    var goals= "#goals" + i;  var link = "#goal-link"+i;
+                    $(name).append(player[i].name);
+                    $(goals).append(player[i].goals);
+                    $(image).attr('src',player[i].image);
+                    var href = "/players/" + player[i].name;
+                    $(link).attr('href',href);
+                }
+            }
+            function topAssists(player){
+                player.sort(function(a,b){
+                    return b.assists - a.assists;
+                });
+                for(var i =0; i<=3; i++){
+                    var image = "#assist-image" + i; var name = "#assist-name" + i;
+                    var assists = "#assist" + i; var link = "#assist-link"+i;
+                    $(name).append(player[i].name);
+                    $(assists).append(player[i].assists);
+                    $(image).attr('src',player[i].image);
+                    var href = "/players/" + player[i].name;
+                    $(link).attr('href',href);
+                }
+            }
+            var goalkeepers = [];
+            for(var i=0; i<players.length; i++){
+                if(players[i].position === "GK")
+                    goalkeepers.push(players[i]);
+            }
+            goalkeepers.sort(function(a,b){              
+                return b.cleanSheet-a.cleanSheet;
+            });
+            function topGoalies(player){
+                for(var i=0; i<=3; i++){
+                    var image = "#sheet-image"+i; var name = "#sheet-name" + i;
+                    var cleenSheets = "#sheet"+i; var link = "#sheet-link" + i;
+                    $(name).append(player[i].name);
+                    $(cleenSheets).append(player[i].cleanSheet);
+                    $(image).attr('src',player[i].image);
+                    var href = '/players/' + player[i].name;
+                    $(link).attr('href',href);
+                }
+            }
+            topGoals(players);
+            topAssists(players);
+            //topGoalies(goalkeepers);
+
+          }      
+        });
 }); 
 

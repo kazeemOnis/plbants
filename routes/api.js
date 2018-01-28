@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router(); //Express router is used to creat the api 
 var Team = require('../models/team_model'); //Require the model for creating a team
 var Player = require('../models/player_model'); //Require the model for creating a player
+var Fixture = require('../models/fixture_model'); //Require the model for creating a fixture
 
 var plTeams = ['Arsenal','Bournemouth','Brighton_and_Hove_Albion','Burnley',
 			'Chelsea','Crystal_Palace','Everton','West_Ham_United','Huddersfield_Town',
@@ -9,9 +10,54 @@ var plTeams = ['Arsenal','Bournemouth','Brighton_and_Hove_Albion','Burnley',
 			'Newcastle_United','Watford','Tottenham_Hotspur','Southampton','Swansea_City','Stoke_City'
 			];
 
+// Api returns all the fixtures in the database
+router.get('/fixtures',function(req,res,next){
+	Fixture.find().sort('week').then(function(fixture){
+		res.send(fixture);
+	}).catch(next);
+});
+
+//Api returns all the fixtures for a particular week in the database
+router.get('/fixtures/:week',function(req,res,next){
+	Fixture.find({'week':req.params.week}).then(function(fixture){
+		res.send(fixture);
+	});
+});
+
+//Api returns all the results from the previous weeks
+router.get('/results/:week',function(req,res,next){
+	var week = req.params.week - 1;
+	var results = [];
+	for(week; week>1; week--){
+		Fixture.find({'week':week}).then(function(fixture){
+			
+		});
+	}
+	console.log(week);
+});
+
+//Api creates a new fixture into the database
+router.post('/fixtures',function(req,res,next){
+	Fixture.create(req.body).then(function(fixture){
+		res.send(fixture);
+	}).catch(next);
+});
+
+//Api searches 
+router.put('/fixtures/:week/:team',function(req,res,next){
+	Fixture.find({'week':req.params.week}).then(function(){
+		Fixture.findOneAndUpdate({ $or:[ {'home.team':req.params.team}, {'away.team':req.params.team}]},req.body).
+		then(function(fixture){
+			res.send(fixture);
+		});
+	});
+});
+
+// router.delete()
+
 // Api retrieves all the players in the database
 router.get('/players',function(req,res,next){
-	Player.find().then(function(player){
+	Player.find().sort('name').then(function(player){
 		res.send(player);
 	}).catch(next);
 });
@@ -74,7 +120,7 @@ router.delete('/players/:name',function(req,res,next){
 
 // Api fetches all the teams in the database 
 router.get('/teams',function(req,res,next){
-	Team.find().then(function(team){
+	Team.find().sort('stats.position').then(function(team){
 		res.send(team);
 	}).catch(next);
 });

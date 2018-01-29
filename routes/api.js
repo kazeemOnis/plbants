@@ -28,9 +28,9 @@ router.get('/fixtures/:week',function(req,res,next){
 router.get('/results/:week',function(req,res,next){
 	var week = req.params.week - 1;
 	var results = [];
-	for(week; week>1; week--){
+	for(week; week>0; week--){
 		Fixture.find({'week':week}).then(function(fixture){
-			
+			res.send(fixture);
 		});
 	}
 	console.log(week);
@@ -77,7 +77,7 @@ router.get('/players',function(req,res,next){
 router.get('/players/:name',function(req,res,next){
 	for(var i=0; i<plTeams.length; i++){
 		if(req.params.name === plTeams[i]){
-			Player.find({'team':req.params.name.replace(/\_/g,' ')}).then(function(player){
+			Player.find({'team.name':req.params.name.replace(/\_/g,' ')}).then(function(player){
 				console.log(req.params);
 				res.send(player);
 			}).catch(next);

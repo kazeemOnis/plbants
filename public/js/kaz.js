@@ -185,24 +185,23 @@ $(document).ready(function(){
 	            defenders.sort(function(a,b){              
 	                return b.cleanSheet-a.cleanSheet;
 	            });
-				// console.log(defenders);
 	            for( var i=0; i<player.length; i++)
 	            {
 	              if(i===0){  //handle first player
-		            player.sort(function(a,b){return b.goals-a.goals;});
+		            player.sort(function(a,b){return b.stats.goals-a.stats.goals;});
 	                name.append(player[0].name);
-	                goals.append(player[0].goals);
-	                assists.append(player[0].assists);
+	                goals.append(player[0].stats.goals);
+	                assists.append(player[0].stats.assists);
 	                image.attr('src',player[0].image);
 	                var links = "/players/" + player[0].name.replace(' ','_');
 	                link.attr('href',links);
 	            
 	              }
 	              	if(i===1){	//handle 2nd
-			            player.sort(function(a,b){return b.assists-a.assists;});
+			            player.sort(function(a,b){return b.stats.assists-a.stats.assists;});
 		                name1.append(""+player[0].name);
-		                goals1.append(""+player[0].goals);
-		                assists1.append(""+player[0].assists);
+		                goals1.append(""+player[0].stats.goals);
+		                assists1.append(""+player[0].stats.assists);
 		                image1.attr('src',player[0].image);
 		                var links = "/players/" + player[0].name.replace(' ','_');
 		                console.log(links);
@@ -211,8 +210,8 @@ $(document).ready(function(){
 					if(i==2)//handle 3rd
 					{
 						name2.append(""+defenders[0].name);
-						clean.append(""+defenders[0].cleanSheet);
-						app.append(""+defenders[0].appearances);
+						clean.append(""+defenders[0].stats.cleanSheet);
+						app.append(""+defenders[0].stats.appearances);
 						image2.attr('src',defenders[0].image);
 						var links = "/players/" + defenders[0].name.replace(' ','_');
 						link2.attr('href',links);

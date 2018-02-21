@@ -2,18 +2,30 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
-  <!-- Required meta tags always come columns -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!--JQuery, Bootstrap.css, Font-awesome.css, Bootstrap-Social.css -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="js/jquery.easy-autocomplete.min.js"></script> 
+    <link rel="stylesheet" href="css/easy-autocomplete.min.css"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
 
-      <!--JQuery, Bootstrap.css, Font-awesome.css, Bootstrap-Social.css -->
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
-        <link rel="stylesheet" href="css/styles.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+  <!-- endbuild -->
+
+  <title>PLBants</title>
+    <!--JQuery, Bootstrap.css, Font-awesome.css, Bootstrap-Social.css -->
+      <!--<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>!-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
+      <link rel="stylesheet" href="css/styles.css">
     <!-- endbuild -->
 </head>
 
@@ -140,50 +152,164 @@
     </div>
   </div>
 
-  <div class="jumbotron">
-    <div class="container">
-      <div id="mySearch" class="row">
-        <div class="col-12" align="center">
-          <form>
-            <input type="text" name="search" placeholder="Search by player">
-          </form>
+  <div class="container">
+    <div id="mySearch" class="row">
+      <div class="col-12" align="center">
+        <form method="get" action="/search" >
+          <input type="text" name="player" id="search" placeholder="Search by player">
+        </form>
+      </div>
+    </div>
+    <div class="row row-header">
+      <div id="leagueTable" class="col-7">
+        <table id="positions">
+          <thead>
+            <tr>
+              <th class=position>Pos</th>
+              <th class=first>Club</th>
+              <th class=columns>MP</th>
+              <th class=columns> W</th>
+              <th class=columns>L</th>
+              <th class=columns>D</th>
+              <th class=columns>GF</th>
+              <th class=columns>GA</th>
+              <th class=columns>GD</th>
+              <th class=columns>Pts</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div id="leagueStats" class="col-5">
+        <h3>Goals</h3>
+        <div class="row row-content">
+          <div class="card col-6">
+            <a id="goal-link0">
+              <div class="card-img-id">
+                <img id="goal-image0" class="card-img-top" alt="Card image" >
+              </div>
+            </a>
+            <div class="card-body">
+              <div class="card-block">
+                <h4 id="goal-name0" class="card-title"></h4>
+                <span id="goals0" class="card-title">Goals: </span><br>
+              </div>
+            </div>
+          </div>
+          <div class="card col-6">
+            <a id="goal-link1">
+              <div class="card-img-id">
+                <img id="goal-image1" class="card-img-top" alt="Card image" >
+              </div>
+            </a>
+            <div class="card-body">
+              <div class="card-block">
+                <h4 id="goal-name1" class="card-title"></h4>
+                <span id="goals1" class="card-title">Goals: </span><br>
+              </div>
+            </div>
+          </div>
+          <div class="card col-6">
+            <a id="goal-link2">
+              <div class="card-img-id">
+                <img id="goal-image2" class="card-img-top" alt="Card image" >
+              </div>
+            </a>
+            <div class="card-body">
+              <div class="card-block">
+                <h4 id="goal-name2" class="card-title"></h4>
+                <span id="goals2" class="card-title">Goals: </span><br>
+              </div>
+            </div>
+          </div>
+          <div class="card col-6">
+            <a id="goal-link3">
+              <div class="card-img-id">
+                <img id="goal-image3" class="card-img-top" alt="Card image" >
+              </div>
+            </a>
+            <div class="card-body">
+              <div class="card-block">
+                <h4 id="goal-name3" class="card-title"></h4>
+                <span id="goals3" class="card-title">Goals: </span><br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>Assists</h3>
+        <div class="row row-content">
+          <div class="card col-6">
+            <a id=assist-link1>
+              <div class="card-img-id">
+                <img id="assist-image0" class="card-img-top" alt="Card image" >
+              </div>
+            </a>
+            <div class="card-body">
+              <div class="card-block">
+                <h4 id="assist-name0" class="card-title"></h4>
+                <span id="assist0" class="card-title">Assists: </span><br>
+              </div>
+            </div>
+          </div>
+          <div class="card col-6">
+            <a id=assist-link1>
+              <div class="card-img-id">
+                <img id="assist-image1" class="card-img-top" alt="Card image" >
+              </div>
+            </a>
+            <div class="card-body">
+              <div class="card-block">
+                <h4 id=assist-name1 class="card-title"></h4>
+                <span id="assist1" class="card-title">Assists: </span><br>
+              </div>
+            </div>
+          </div>
+          <div class="card col-6">
+            <a id=assist-link2>
+              <div class="card-img-id">
+                <img id="assist-image2" class="card-img-top" alt="Card image" >
+              </div>
+            </a>
+            <div class="card-body">
+              <div class="card-block">
+                <h4 id="assist-name2" class="card-title"></h4>
+                <span id="assist2" class="card-title">Assists: </span><br>
+              </div>
+            </div>
+          </div>
+          <div class="card col-6">
+            <a id="assist-link2">
+              <div class="card-img-id">
+                <img id="assist-image3" class="card-img-top" alt="Card image" >
+              </div>
+            </a>
+            <div class="card-body">
+              <div class="card-block">
+                <h4 id="assist-name3" class="card-title"></h4>
+                <span id="assist3" class="card-title">Assists: </span><br>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row row-content">
-        <div id="leagueTable" class="col-8">
-          <table id="positions">
-            <thead>
-              <tr>
-                <th class=position>Pos</th>
-                <th class=first>Club</th>
-                <th class=columns>MP</th>
-                <th class=columns> W</th>
-                <th class=columns>L</th>
-                <th class=columns>D</th>
-                <th class=columns>GF</th>
-                <th class=columns>GA</th>
-                <th class=columns>GD</th>
-                <th class=columns>Pts</th>
-              </tr>
-            </thead>
-          </table>
-        </div>
-        <div id="leagueStats" class="col-4">
-          <div class="col"><h3>GOALS</h3><p>{{player.name}}{{player.goals}}{{player.club}}</p></div>
-          <div class="col"><h3>ASSISTS</h3><p>{{player.name}}{{player.assists}}{{player.club}}</p></div>
-        </div>
-      </div>
-    </div>        
+    </div>
   </div>
+  
   <footer></footer>
-
-  <!-- Popper columns, ,then Tether, then Bootstrap JS. -->
-      <!-- build:js js/main.js -->
-      <script src="https://unpkg.com/popper.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-      <script src="js/scripts.js" type="text/javascript"></script>
+  <!-- Popper first, ,then Tether, then Bootstrap JS. -->
+    <!-- build:js js/main.js -->
+    <script src="https://unpkg.com/popper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    <script src="js/scripts.js" type="text/javascript"></script>
+   
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+    <!-- Latest compiled and minified Locales -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.min.js"></script>
   <!-- endbuild --> 
+   
 
 </body>
 </html>

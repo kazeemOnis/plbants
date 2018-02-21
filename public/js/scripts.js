@@ -1,10 +1,4 @@
 $(document).ready(function(){
-    // var team = ['Arsenal', 'Bourenmouth', 'Brighton', 'Burnley', 'Chelsea',
-    //             'Crystal Palace', 'Everton', 'Huddersfield', 'Leicester',
-    //             'Liverpool', 'Manchester City', 'Manchesterter United', 'Newcastle United',
-    //             'Southampton', 'Stoke City', 'Swansea', 'Tottenham', 'Watford', 'West Bromwich Albion',
-    //             'West Ham United' ];
-                // console.log(team);
     $.ajax({
         type: 'GET',
         url: 'api/teams',
@@ -38,40 +32,80 @@ $(document).ready(function(){
                 var td7 = $('<td></td>').attr('id','col7').append(conceded);
                 var td8 = $('<td></td>').attr('id','col8').append(diff);
                 var td9 = $('<td></td>').attr('id','col9').append(points);
-                $('#positions thead').after(tbody);
+                $('#positions').append(tbody);
                 tbody.attr('id','body');
                 tbody.append(td,td1,td2,td3,td4,td5,td6,td7,td8,td9);
             }
-            function sortTable() {
-                var table, rows, switching, i, x, y, shouldSwitch;
-                table = document.getElementById("positions");
-                switching = true;
-                while (switching) {
-                    switching = false;
-                    rows = table.getElementsByTagName("TR");
-                    for (i = 1; i < (rows.length - 1); i++) {
-                      shouldSwitch = false;
-                      x = rows[i].getElementsByTagName("TD")[0];
-                      y = rows[i + 1].getElementsByTagName("TD")[0];
-                    if (parseInt(x.innerHTML.toLowerCase()) > parseInt(y.innerHTML.toLowerCase())) {
-                        shouldSwitch= true;
-                        break;
-                      }
-                    }
-                    if (shouldSwitch) {
-                      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                      switching = true;
-                    }
-                }
-            }
             for(var i in team){
-                var diff = parseInt(team[i].stats.goals) - parseInt(team[i].stats.conceded);
+                var diff = team[i].stats.goals - team[i].stats.conceded;
                 table_data(team[i].image,team[i].stats.position,team[i].name,team[i].stats.played,team[i].stats.wins,
                     team[i].stats.loss,team[i].stats.draws,team[i].stats.goals,
                     team[i].stats.conceded,diff,team[i].stats.points);
             }
-            sortTable();
         }
     });
+
+    $.ajax({
+        type:'GET',
+        url:'api/players',
+        success: function(players){
+            var search = $('#search');
+            var options = {
+                url:'api/players',
+                minCharNumber:1,
+                list:{
+                    sort:{enabled:true},
+                    match:{enabled: true},
+                    showAnimation: {
+                        type: "slide"
+                    },
+                    hideAnimation:{
+                        type: "slide"
+                    }
+                },
+                template:{
+                    type: "iconRight",
+                    fields: {
+                        iconSrc: "image"
+                    }
+                },    
+                highlightPhrase: false,
+                requestDelay: 700,
+                getValue: "name",
+                theme: "dark"
+            };
+            search.easyAutocomplete(options);
+            function topGoals(player){
+                player.sort(function(a,b){
+                    return b.stats.goals-a.stats.goals;
+                });
+                for(var i=0; i<=3; i++){
+                    var name = "#goal-name" + i; var image = "#goal-image" + i; 
+                    var goals= "#goals" + i;  var link = "#goal-link"+i;
+                    $(name).append(player[i].name);
+                    $(goals).append(player[i].stats.goals);
+                    $(image).attr('src',player[i].image);
+                    var href = "/players/" + player[i].name;
+                    $(link).attr('href',href);
+                }
+            }
+            function topAssists(player){
+                player.sort(function(a,b){
+                    return b.stats.assists - a.stats.assists;
+                });
+                for(var i =0; i<=3; i++){
+                    var image = "#assist-image" + i; var name = "#assist-name" + i;
+                    var assists = "#assist" + i; var link = "#assist-link"+i;
+                    $(name).append(player[i].name);
+                    $(assists).append(player[i].stats.assists);
+                    $(image).attr('src',player[i].image);
+                    var href = "/players/" + player[i].name;
+                    $(link).attr('href',href);
+                }
+            }
+            topGoals(players);
+            topAssists(players);
+          }      
+        });
 }); 
 

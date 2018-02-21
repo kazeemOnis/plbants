@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<title>Player Page</title>
 	  <!-- Required meta tags always come first -->
@@ -10,133 +11,178 @@
 	      <!--JQuery, Bootstrap.css, Font-awesome.css, Bootstrap-Social.css -->
 	        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 	        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-	        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></link>
 	        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.min.css">
 	        <link rel="stylesheet" href="css/styles.css">
 	    <!-- endbuild -->
 </head>
+
 <body>
-  <nav class="navbar navbar-inverse navbar-toggleable-sm" style="margin-top: -50px;">
-    <div class="container" style="color: black;">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand" href="index.html"><img src="img/background/plbants.png" class="nav-img" style="height: 100px;"></a>
-      <h1 id="plhead">PLBants</h1>
-    </div>
-  </nav>
-  
-  <div id="teamLogos">
-    <div class="container">
-      <div class="row row-header">
-        <div class="col-12">
-          <ul id="team-logos">
-            <li>
-              <a href="/teams/Arsenal">
-                <img src="img/logos/arsenal.png" class="image" alt="arsenal">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Bournemouth">
-                <img src="img/logos/bournemouth.png" class=image alt="bournemouth">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Brighton_and_Hove_Albion">
-                <img src="img/logos/brighton.png" class=image alt="brighton">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Burnley">
-                <img src="img/logos/burnley.png" class=image alt="burnley">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Chelsea">
-                <img src="img/logos/chelsea.png" class=image alt="chelsea">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Crystal_Palace">
-                <img src="img/logos/crystalpalace.png" class=image alt="crystalpalace">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Everton">
-                <img src="img/logos/everton.png" class=image alt="everton">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Leicester_City">
-                <img src="img/logos/leicester.png" class=image alt="leicester">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Liverpool">
-                <img src="img/logos/liverpool.png" class=image alt="liverpool">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Manchester_City">
-                <img src="img/logos/mancity.png" class=image alt="mancity">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Manchester_United">
-                <img src="img/logos/manutd.png" class=image alt="manutd">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Huddersfield_Town">
-                <img src="img/logos/huddersfield.png" class=image alt="huddersfield">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Newcastle_United">
-                <img src="img/logos/newcastle.png" class=image alt="newcastle">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Southampton">
-                <img src="img/logos/southampton.png" class=image alt="southampton">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Stoke_City">
-                <img src="img/logos/stoke.png" class=image alt="stoke">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Swansea_City">
-                <img src="img/logos/swansea.png" class=image alt="swansea">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Tottenham_Hotspur">
-                <img src="img/logos/tottenham.png" class=image alt="tottenham">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/Watford">
-                <img src="img/logos/watford.png" class=image alt="watford">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/West_Bromwich_Albion">
-                <img src="img/logos/westbrom.png" class=image alt="westbrom">
-              </a>
-            </li>
-            <li>
-              <a href="/teams/West_Ham_United">
-                <img src="img/logos/westham.png" class=image alt="westham">
-              </a>
-            </li>
-          </ul>
-        </div> 
+  <div id="loader">
+    <img src="/img/icons/soccerballs.gif">
+  </div>
+  <div id=mypage>
+    <nav class="navbar navbar-inverse navbar-toggleable-sm" style="margin-top: -50px;">
+      <div class="container" style="color: black;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/"><img src="/img/logos/plbants.png" class="nav-img"  align="center" style="height: 100px;"></a>
+      </div>
+    </nav>
+      
+    <div id="teamLogos">
+      <div class="container">
+        <div class="row row-header">
+          <div class="col-12">
+            <ul id="team-logos">
+              <li value="0">
+                <a href="/teams/Arsenal">
+                  <img src="img/logos/arsenal.png" class="image" alt="arsenal">
+                </a>
+              </li>
+              <li value="1">
+                <a href="/teams/Bournemouth">
+                  <img src="img/logos/bournemouth.png" class=image alt="bournemouth">
+                </a>
+              </li>
+              <li value="2">
+                <a href="/teams/Brighton_and_Hove_Albion">
+                  <img src="img/logos/brighton.png" class=image alt="brighton">
+                </a>
+              </li>
+              <li value="3">
+                <a href="/teams/Burnley">
+                  <img src="img/logos/burnley.png" class=image alt="burnley">
+                </a>
+              </li>
+              <li value="4">
+                <a href="/teams/Chelsea">
+                  <img src="img/logos/chelsea.png" class=image alt="chelsea">
+                </a>
+              </li>
+              <li value="5">
+                <a href="/teams/Crystal_Palace">
+                  <img src="img/logos/crystalpalace.png" class=image alt="crystalpalace">
+                </a>
+              </li>
+              <li value="6">
+                <a href="/teams/Everton">
+                  <img src="img/logos/everton.png" class=image alt="everton">
+                </a>
+              </li>
+              <li value="11">
+                <a href="/teams/Huddersfield_Town">
+                  <img src="img/logos/huddersfield.png" class=image alt="huddersfield">
+                </a>
+              </li>
+              <li value="7">
+                <a href="/teams/Leicester_City">
+                  <img src="img/logos/leicester.png" class=image alt="leicester">
+                </a>
+              </li>
+              <li value="8">
+                <a href="/teams/Liverpool">
+                  <img src="img/logos/liverpool.png" class=image alt="liverpool">
+                </a>
+              </li>
+              <li value="9">
+                <a href="/teams/Manchester_City">
+                  <img src="img/logos/mancity.png" class=image alt="mancity">
+                </a>
+              </li>
+              <li value="10">
+                <a href="/teams/Manchester_United">
+                  <img src="img/logos/manutd.png" class=image alt="manutd">
+                </a>
+              </li>
+              <li value="12">
+                <a href="/teams/Newcastle_United">
+                  <img src="img/logos/newcastle.png" class=image alt="newcastle">
+                </a>
+              </li>
+              <li value="13">
+                <a href="/teams/Southampton">
+                  <img src="img/logos/southampton.png" class=image alt="southampton">
+                </a>
+              </li>
+              <li value="14">
+                <a href="/teams/Stoke_City">
+                  <img src="img/logos/stoke.png" class=image alt="stoke">
+                </a>
+              </li>
+              <li value="15">
+                <a href="/teams/Swansea_City">
+                  <img src="img/logos/swansea.png" class=image alt="swansea">
+                </a>
+              </li>
+              <li value="16">
+                <a href="/teams/Tottenham_Hotspur">
+                  <img src="img/logos/tottenham.png" class=image alt="tottenham">
+                </a>
+              </li>
+              <li value="17">
+                <a href="/teams/Watford">
+                  <img src="img/logos/watford.png" class=image alt="watford">
+                </a>
+              </li>
+              <li value="18">
+                <a href="/teams/West_Bromwich_Albion">
+                  <img src="img/logos/westbrom.png" class=image alt="westbrom">
+                </a>
+              </li>
+              <li value="19">
+                <a href="/teams/West_Ham_United">
+                  <img src="img/logos/westham.png" class=image alt="westham">
+                </a>
+              </li>
+            </ul>
+          </div> 
+        </div>
       </div>
     </div>
+    
+    <header class="jumbotron">
+      <div class="container">
+        <div id="player-info">
+          <div class="row row-header">
+            <img id=player-img class="col-3">
+            <span id=details class="col-5 words"></span>
+            <span id=number class="col-4 words"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav id=breadcrumb aria-label="breadcrumb">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li id=teamCrumb class="breadcrumb-item"><a></a></li>
+          <li id=playerCrumb class="breadcrumb-item active" aria-current="page"><a href="#"></a></li>
+        </ol>
+      </div>
+    </nav>
+
+    <div id="playerOverview">
+      <div class="container">
+        <div class="row row-content">
+          <div class="col-3"></div>
+          <div class="card col-6">
+            <div class="card-title">
+              <h3>Stats</h3>
+            </div>
+            <div id=playerstats class="card-body">
+            </div>
+            </div>
+          </div>
+          <div class="col-3"></div>
+        </div>
+      </div>
+    </div>
+
+    <footer></footer>
   </div>
-  <footer></footer>
   <!-- Popper first, ,then Tether, then Bootstrap JS. -->
       <!-- build:js js/main.js -->
       <script src="https://unpkg.com/popper.js"></script>

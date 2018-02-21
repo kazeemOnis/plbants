@@ -1,4 +1,21 @@
 /*General*/
+  #mypage {
+    display: none; }
+
+  #loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;/*
+    width: 150px;
+    height: 150px;*/
+    margin: -75px 0 0 -75px;/*
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;*/ }
+
   .row-header {
     margin: 0px 0px;
     padding: 0px 0px;
@@ -25,6 +42,7 @@
     background-image: url("/img/background/field.jpeg");
     background-attachment: fixed; 
     background-position: center;
+    background-size: cover;
     color: white; }
 
 /* Navbar */
@@ -72,6 +90,11 @@
   td {
     width: 50px; }
 
+  td img {
+    height: 20px;
+    width: 35px;
+    padding-right: 5px; }
+
   td#col8{ 
     text-align: center;
     padding-right: 23px;
@@ -106,15 +129,16 @@
     background: transparent; }
 
   #info {
-    width: 100%;
-    /*height: 100px;*/
-    /*max-height: auto;*/ }
+    width: 100%; }
 
   #team-badge {
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 160px;
     margin-top: auto;
     margin-bottom: auto; }
+
+  #teaminfo {
+    padding-left: 50px; }
 
   .stadium-icon {
     filter: invert(100%);
@@ -131,7 +155,16 @@
   #teampitch { 
     height: 100%;
     width: 100%; 
-    border-radius: 50% 0% 50% 0% }
+    border-radius: 50% 0% 50% 0%; }
+
+  #tabnav { 
+    padding: 0px; }
+
+  .nav-item {
+    background-color: rgba(248,248,248,0.4); }
+
+  #myTab a {
+   color: black; }
 
   #team-background {
     border-right: 1px ridge; }
@@ -139,11 +172,23 @@
   #club-name {
     font-size: 25px; }
 
+  .top-players a {
+    text-decoration: none; }
+
+  .top-players .card-img-top {
+    width:100%;
+    height: 200px auto; }
+
+  .top-players .card-img-id {
+    max-height: 150px;
+    overflow: hidden; }
+
+  .top-players .card-block {
+    color: black;
+    text-align: center; }
+
   .fixtures, .formation {
     border-right: 1px ridge; }
-  
-  #players li {
-    display: inline; }
 
   .teamplayerimage {
     border-radius: 20%; }
@@ -156,21 +201,128 @@
 
   .card {
     background-color: transparent;
-    border: transparent;
-  }
+    border: transparent; }
+
+  .stats .card {
+    width: 100% auto;
+    border: 1px solid;
+    border-color: black; }
+
+  .stats .card-body {
+    border-top: 1px solid;
+    border-color: black; }
+
+  .stats .card-block {
+    text-align: center;
+    font-size: larger; }
+
+  /*#overview .container {
+    background-color: rgba(248,248,248,0.4);
+    color: black;
+  }*/
+
+  .tab-pane .container {
+    background-color: rgba(248,248,248,0.4); 
+    color: black; }
+
+  #squadlist {
+    width: 100%;
+    padding: 0px }
+
+  #squadlist li {
+    display: inline-block;}
+
+  #stat1,#stat2 {
+    border-bottom: 1px ridge;
+    border-color: black; }
+
+  #squadcard {
+    width: 267px;
+    background-color: rgba(255,255,255,0.8);
+    color: black;
+    margin: 5px;
+    padding: 0px; }
+
+  #squadcard .card-block {
+    padding-top: 0px; }
+
+  #squadcard .card-title {
+    text-align: center; }
+
+  #squadcard .icon {
+    height: 35px;
+    margin: 10px; }
+
+  /*#squadcard .card-img-top {
+    margin: 0px;
+  }*/
+
+  #squad-img {
+    height: 100px;
+    max-height: 150px;
+    width: 100px;
+    margin-top: 15px; }
+
+  .squadstat {
+    display: inline-block;
+    text-align-last: right; }
+
+  /*#squadcard-img {*/
+    /*max-height: 90px; }*/
+
+  #squad-name {
+    text-align: right; }
+
+  .shortFixturesImg {
+    height: 40px;
+    margin: 5px; }
+
+  #fullFixtures .card-title, #fullFixtures .card-block {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold; }
+
+  #pastFixtures .card-title, #pastFixtures .card-block {
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold; }
+
+  .fullFixturesImg, .pastFixturesImg {
+    height: 60px;
+    margin: 5px; }
 
   #players {
     width: 100%;
     height: 70px;
     overflow-y: hidden;
     overflow-x: scroll;
-    white-space: nowrap; }
+    white-space: nowrap;
+    margin: 0px;
+    margin-top: 20px;
+    padding: 0px; }
 
-  .tab-content {
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    padding: 10px; }
+  #players li {
+    display: inline; }
+
+  #nation {
+    height: 13px;
+    width: 20px; }
+
+/* Player Page */
+  #player-info .row-header{
+    max-height: 275px;
+    overflow: hidden; }
+
+  #player-img {
+    margin-top: 50px; }
+
+  #details {
+    margin-top: auto;
+    margin-bottom: auto; }
+
+  #number p {
+    max-height: 275px;
+    font-size: 200px; }
 
 /* Social Icons */
   /*Change icons size here*/

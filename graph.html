@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <script src="node_modules/chart.js/dist/Chart.bundle.min.js" type="text/javascript">
+  </script>
+  <body>
+    <div style="width: 640px; background: #eee;"><canvas id="chart" style="height: 100%;"></canvas></div>
+  </body>
+  <script>
+    var badges=[], teamNames=[];
+    teamNames.push("arsenal");
+    teamNames.push("chelsea");
+    teamNames.push("bournemouth");
+    teamNames.push("watford");
+    teamNames.push("burnley");
+    
+    badges.push("public/img/logos/arsenal.png");
+    badges.push("public/img/logos/chelsea.png");
+    badges.push("public/img/logos/bournemouth.png");
+    badges.push("public/img/logos/watford.png");
+    badges.push("public/img/logos/burnley.png");
+
+    console.log(badges);
+    var results=[1,0,1,1,0];
+    results.reverse();
+    var plugin={ beforeDraw: function(chart){
+      for( b in badges)
+      {
+         let img = new Image(40,40);
+         img.src = badges[b];
+        chart.config.data.datasets[0]._meta[0].data[b]._model.pointStyle = img;
+      }//for
+      for(n in teamNames)
+      {
+        chart.config.data.labels[n] = teamNames[n];
+      }
+    }};
+    var ctx = document.getElementById("chart");
+    var myChart = new Chart(ctx, {
+      plugins: [plugin],
+      type: 'line',
+      data: {
+        labels: ["","","","",""],
+        datasets: [{
+          label:'',
+          data: results,
+          backgroundColor: [
+              'rgba(55, 249,  32, 0.3)',
+              'rgba(55, 249,  32, 0.3)',
+              'rgba(55, 249,  32, 0.3)',
+              'rgba(55, 249,  32, 0.3)',
+              'rgba(55, 249,  32, 0.3)',
+          ],
+          borderColor: [
+              'rgba(55, 249,  32, 1)',
+              'rgba(55, 249,  32, 1)',
+              'rgba(55, 249,  32, 1)',
+              'rgba(55, 249,  32, 1)',
+              'rgba(55, 249,  32, 1)',
+          ],
+          borderWidth: 1,
+          fill: false,
+          pointHitRadius: 18,
+          pointHoverRadius: 5,
+        }]
+      },
+      options: {
+        elements:
+        {
+          line:{ tension: 0.23,}
+        },
+        layout:{
+          //for fixing badge cut off issue
+          //solved from chartjs github-issue-2872
+          padding:{
+            left: 30,
+            right: 30,
+          }
+        },
+        legend:{
+          display:false,
+        },
+        tooltips:{
+          enabled:true
+        },
+        scales: {
+          yAxes: [{
+            ticks: {
+              min: -0.2,
+              max: 1.2
+            },
+            gridLines: 
+            { 
+              display:false,
+              drawBorder: false,
+            },
+            display:false,
+          }],//yAxes
+          xAxes:[{
+            gridLines: { display:false },
+            beginAtZero: false,
+            ticks: {
+              fontColor: 'rgba(253,155,23, 1)',
+              min: -1.5,
+              max: 6,
+            },
+          }],
+        },//scales
+      }//options
+    });
+    console.log(myChart);
+  </script>
+</html>

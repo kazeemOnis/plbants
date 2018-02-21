@@ -1,0 +1,7 @@
+==================================
+Features added since last commit:
+==================================
+1. team form graph; for visualising team performance in recent games
+2. improved search; with autocomplete functionality
+
+Author: Benjamin Obaje

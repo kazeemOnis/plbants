@@ -13,6 +13,14 @@ var playerSchema = new Schema({
 			type: String
 		}
 	},
+	country: {
+		name: {
+			type: String
+		},
+		image: {
+			type: String
+		}
+	},
 	social: {
 		facebook: {
 			type: String

@@ -10,6 +10,14 @@ var plTeams = ['Arsenal','Bournemouth','Brighton_and_Hove_Albion','Burnley',
 			'Newcastle_United','Watford','Tottenham_Hotspur','Southampton','Swansea_City','Stoke_City'
 			];
 
+// Api searches for the top players for a particular stats
+router.get('/stats/:stat',function(req,res,next){
+	var sort = 'stats.' + req.params.stat;
+	Player.find().sort([[sort,'-1']]).then(function(player){
+		res.send(player);
+	});
+});
+
 // Api returns all the fixtures in the database
 router.get('/fixtures',function(req,res,next){
 	Fixture.find().sort('week').then(function(fixture){
@@ -17,23 +25,54 @@ router.get('/fixtures',function(req,res,next){
 	}).catch(next);
 });
 
-//Api returns all the fixtures for a particular week in the database
-router.get('/fixtures/:week',function(req,res,next){
-	Fixture.find({'week':req.params.week}).then(function(fixture){
-		res.send(fixture);
+// returns either all the fixtures for a team /fixtures/Arsenal
+// or returns fixtures for a particular week /fixtures/1
+router.get('/fixtures/:team',function(req,res,next){
+	for(var i=0; i<plTeams.length; i++){
+		if(req.params.team === plTeams[i]){
+			Fixture.find({$or:[ 
+	        	{'home.team':req.params.team}, 
+	        	{'away.team':req.params.team}]}).sort('week').then(function(fixture){
+				res.send(fixture);
+			}).catch(next);
+	        break;
+		}
+	}
+	if(req.params.team !== plTeams[i]){
+		Fixture.find({'week':req.params.team}).then(function(fixture){
+			res.send(fixture);
 	});
+	}
+
 });
 
-//Api returns all the results from the previous weeks
+//returns team fixture for a particular week
+//e.g: api/fixtures/2/Watford returns Watford v Bournemouth
+router.get('/fixtures/:week/:team',function(req,res,next){  
+  Fixture.find({ 
+    $and:[ 
+      {$or:[ 
+        {'home.team':req.params.team}, 
+        {'away.team':req.params.team}]}, 
+      {'week':req.params.week}
+    ]}).
+  then(function(fixture){
+    res.send(fixture);
+  });
+});
+
+
+//Api returns all the results from all the previous weeks
 router.get('/results/:week',function(req,res,next){
-	var week = req.params.week - 1;
 	var results = [];
-	for(week; week>0; week--){
-		Fixture.find({'week':week}).then(function(fixture){
-			res.send(fixture);
+	for(let week=req.params.week; week>0; week--){
+		Fixture.find({'week':week}).sort('week').then(function(fixture){
+			results.push(fixture);
+			if(week==1){
+				res.send(results);	
+			}
 		});
 	}
-	console.log(week);
 });
 
 //Api creates a new fixture into the database
@@ -45,15 +84,27 @@ router.post('/fixtures',function(req,res,next){
 
 //Api searches 
 router.put('/fixtures/:week/:team',function(req,res,next){
-	Fixture.find({'week':req.params.week}).then(function(){
-		Fixture.findOneAndUpdate({ $or:[ {'home.team':req.params.team}, {'away.team':req.params.team}]},req.body).
-		then(function(fixture){
+	Fixture.findOneAndUpdate({
+		$and:[
+		{$or:[ 
+        {'home.team':req.params.team}, 
+        {'away.team':req.params.team}]}, 
+		{'week':req.params.week}]},req.body).then(function(fixture){
 			res.send(fixture);
-		});
-	});
+	}).catch(next);
 });
 
-// router.delete()
+
+router.delete('/fixtures/:week/:team',function(req,res,next){
+	Fixture.findOneAndRemove({
+		$and:[
+		{$or:[ 
+        {'home.team':req.params.team}, 
+        {'away.team':req.params.team}]}, 
+		{'week':req.params.week}]}).then(function(fixture){
+			res.send(fixture);
+		}).catch(next);
+});
 
 // Api retrieves all the players in the database
 router.get('/players',function(req,res,next){
